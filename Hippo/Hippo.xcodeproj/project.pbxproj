@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687571F1B7590001ECBCF /* AppDelegate.swift */; };
-		AB96875A1F1B7590001ECBCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687591F1B7590001ECBCF /* ViewController.swift */; };
 		AB96875D1F1B7590001ECBCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB96875B1F1B7590001ECBCF /* Main.storyboard */; };
 		AB96875F1F1B7590001ECBCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB96875E1F1B7590001ECBCF /* Assets.xcassets */; };
 		AB9687621F1B7590001ECBCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB9687601F1B7590001ECBCF /* LaunchScreen.storyboard */; };
@@ -17,6 +16,7 @@
 		AB9687871F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */; };
 		AB9687A11F1B7E89001ECBCF /* CameraEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */; };
 		AB9687A21F1B7E89001ECBCF /* CameraEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C85B81F1B825A004D8893 /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,6 @@
 /* Begin PBXFileReference section */
 		AB9687541F1B7590001ECBCF /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9687571F1B7590001ECBCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AB9687591F1B7590001ECBCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB96875C1F1B7590001ECBCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB96875E1F1B7590001ECBCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB9687611F1B7590001ECBCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug-Config.xcconfig"; sourceTree = "<group>"; };
 		AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Project-Config.xcconfig"; sourceTree = "<group>"; };
 		AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CameraEngine.xcodeproj; path = ../../Carthage/Checkouts/CameraEngine/CameraEngine.xcodeproj; sourceTree = "<group>"; };
+		AB9C85B81F1B825A004D8893 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,9 +222,17 @@
 		AB9687A81F1B7EE8001ECBCF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				AB9687591F1B7590001ECBCF /* ViewController.swift */,
+				AB9C85B71F1B8249004D8893 /* Camera */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		AB9C85B71F1B8249004D8893 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				AB9C85B81F1B825A004D8893 /* CameraViewController.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,8 +385,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB96875A1F1B7590001ECBCF /* ViewController.swift in Sources */,
 				AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */,
+				AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T6NK4QEU4Q;
 				INFOPLIST_FILE = Hippo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huyle.Hippo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -569,6 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T6NK4QEU4Q;
 				INFOPLIST_FILE = Hippo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huyle.Hippo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
