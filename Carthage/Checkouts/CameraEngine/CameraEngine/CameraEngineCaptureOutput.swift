@@ -67,6 +67,9 @@ class CameraEngineCaptureOutput: NSObject {
     
     func startRecordVideo(_ blockCompletion: @escaping blockCompletionCaptureVideo, url: URL) {
         if self.isRecording == false {
+//            let connection = self.captureVideoOutput.connection(withMediaType: AVMediaTypeVideo)
+//            connection?.isVideoMirrored = false
+//            connection?.videoOrientation = .portrait
             self.videoEncoder.startWriting(url)
             self.isRecording = true
         }
@@ -74,6 +77,7 @@ class CameraEngineCaptureOutput: NSObject {
             self.isRecording = false
             self.stopRecordVideo()
         }
+        print("Record")        
         self.blockCompletionVideo = blockCompletion
     }
     
@@ -132,9 +136,11 @@ extension CameraEngineCaptureOutput: AVCaptureVideoDataOutputSampleBufferDelegat
             return
         }
         if captureOutput == self.captureVideoOutput {
+            print("V: video")
             self.videoEncoder.appendBuffer(sampleBuffer, isVideo: true)
         }
         else if captureOutput == self.captureAudioOutput {
+            print("A: audio")
             self.videoEncoder.appendBuffer(sampleBuffer, isVideo: false)
         }
     }

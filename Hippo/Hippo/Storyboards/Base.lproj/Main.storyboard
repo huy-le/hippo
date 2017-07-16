@@ -23,10 +23,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se3-hB-Zok">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="30"/>
                                         <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="touchDone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0do-0q-Je0"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6J6-v7-9bA">
                                         <rect key="frame" x="260" y="0.0" width="55" height="30"/>
                                         <state key="normal" title="Capture"/>
+                                        <connections>
+                                            <action selector="touchCapture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qHb-9t-V1e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

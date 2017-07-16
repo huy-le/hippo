@@ -17,6 +17,7 @@
 		AB9687A11F1B7E89001ECBCF /* CameraEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */; };
 		AB9687A21F1B7E89001ECBCF /* CameraEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C85B81F1B825A004D8893 /* CameraViewController.swift */; };
+		AB9C85BC1F1C03E9004D8893 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C85BB1F1C03E9004D8893 /* VideoPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Project-Config.xcconfig"; sourceTree = "<group>"; };
 		AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CameraEngine.xcodeproj; path = ../../Carthage/Checkouts/CameraEngine/CameraEngine.xcodeproj; sourceTree = "<group>"; };
 		AB9C85B81F1B825A004D8893 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		AB9C85BB1F1C03E9004D8893 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 		AB9687A81F1B7EE8001ECBCF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				AB9C85BA1F1C03C2004D8893 /* VideoPlayer */,
 				AB9C85B71F1B8249004D8893 /* Camera */,
 			);
 			path = Screens;
@@ -233,6 +236,14 @@
 				AB9C85B81F1B825A004D8893 /* CameraViewController.swift */,
 			);
 			path = Camera;
+			sourceTree = "<group>";
+		};
+		AB9C85BA1F1C03C2004D8893 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				AB9C85BB1F1C03E9004D8893 /* VideoPlayerViewController.swift */,
+			);
+			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9C85BC1F1C03E9004D8893 /* VideoPlayerViewController.swift in Sources */,
 				AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */,
 				AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */,
 			);
