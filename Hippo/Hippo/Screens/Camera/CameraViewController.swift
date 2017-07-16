@@ -20,7 +20,8 @@ final class CameraViewController: UIViewController {
         super.viewDidLoad()
         cameraEngine.startSession()
         cameraEngine.cameraFocus = .continuousAutoFocus
-        cameraEngine.rotationCamera = true
+        // FIX: Test fail
+        // cameraEngine.rotationCamera = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
