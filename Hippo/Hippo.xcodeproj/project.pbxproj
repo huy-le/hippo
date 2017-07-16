@@ -15,6 +15,8 @@
 		AB96876D1F1B7590001ECBCF /* HippoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB96876C1F1B7590001ECBCF /* HippoTests.swift */; };
 		AB9687781F1B7590001ECBCF /* HippoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687771F1B7590001ECBCF /* HippoUITests.swift */; };
 		AB9687871F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */; };
+		AB9687A11F1B7E89001ECBCF /* CameraEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */; };
+		AB9687A21F1B7E89001ECBCF /* CameraEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +34,35 @@
 			remoteGlobalIDString = AB9687531F1B7590001ECBCF;
 			remoteInfo = Hippo;
 		};
+		AB96879E1F1B7E73001ECBCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BBE9B7B71D8C41D1009F2670;
+			remoteInfo = CameraEngine;
+		};
+		AB9687A31F1B7E89001ECBCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BBE9B7B61D8C41D1009F2670;
+			remoteInfo = CameraEngine;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB9687941F1B7DD4001ECBCF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AB9687A21F1B7E89001ECBCF /* CameraEngine.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AB9687541F1B7590001ECBCF /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +80,7 @@
 		AB9687791F1B7590001ECBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug-Config.xcconfig"; sourceTree = "<group>"; };
 		AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Project-Config.xcconfig"; sourceTree = "<group>"; };
+		AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CameraEngine.xcodeproj; path = ../../Carthage/Checkouts/CameraEngine/CameraEngine.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9687A11F1B7E89001ECBCF /* CameraEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +116,8 @@
 				AB96876B1F1B7590001ECBCF /* HippoTests */,
 				AB9687761F1B7590001ECBCF /* HippoUITests */,
 				AB9687551F1B7590001ECBCF /* Products */,
+				AB9687A01F1B7E7B001ECBCF /* Frameworks */,
+				AB96878A1F1B7D81001ECBCF /* Dependencies */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,12 +134,12 @@
 		AB9687561F1B7590001ECBCF /* Hippo */ = {
 			isa = PBXGroup;
 			children = (
+				AB9687A81F1B7EE8001ECBCF /* Screens */,
+				AB9687A71F1B7EDE001ECBCF /* Components */,
+				AB9687A61F1B7ECF001ECBCF /* Storyboards */,
+				AB9687A51F1B7EAB001ECBCF /* Resources */,
 				AB9687851F1B7C67001ECBCF /* Configurations */,
 				AB9687571F1B7590001ECBCF /* AppDelegate.swift */,
-				AB9687591F1B7590001ECBCF /* ViewController.swift */,
-				AB96875B1F1B7590001ECBCF /* Main.storyboard */,
-				AB96875E1F1B7590001ECBCF /* Assets.xcassets */,
-				AB9687601F1B7590001ECBCF /* LaunchScreen.storyboard */,
 				AB9687631F1B7590001ECBCF /* Info.plist */,
 			);
 			path = Hippo;
@@ -138,6 +172,61 @@
 			path = Configurations;
 			sourceTree = "<group>";
 		};
+		AB96878A1F1B7D81001ECBCF /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */,
+			);
+			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		AB96879B1F1B7E73001ECBCF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB9687A01F1B7E7B001ECBCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB9687A51F1B7EAB001ECBCF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AB96875E1F1B7590001ECBCF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AB9687A61F1B7ECF001ECBCF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AB96875B1F1B7590001ECBCF /* Main.storyboard */,
+				AB9687601F1B7590001ECBCF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		AB9687A71F1B7EDE001ECBCF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		AB9687A81F1B7EE8001ECBCF /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AB9687591F1B7590001ECBCF /* ViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,10 +237,12 @@
 				AB9687501F1B7590001ECBCF /* Sources */,
 				AB9687511F1B7590001ECBCF /* Frameworks */,
 				AB9687521F1B7590001ECBCF /* Resources */,
+				AB9687941F1B7DD4001ECBCF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AB9687A41F1B7E89001ECBCF /* PBXTargetDependency */,
 			);
 			name = Hippo;
 			productName = Hippo;
@@ -228,6 +319,12 @@
 			mainGroup = AB96874B1F1B7590001ECBCF;
 			productRefGroup = AB9687551F1B7590001ECBCF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AB96879B1F1B7E73001ECBCF /* Products */;
+					ProjectRef = AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AB9687531F1B7590001ECBCF /* Hippo */,
@@ -236,6 +333,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CameraEngine.framework;
+			remoteRef = AB96879E1F1B7E73001ECBCF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AB9687521F1B7590001ECBCF /* Resources */ = {
@@ -303,6 +410,11 @@
 			isa = PBXTargetDependency;
 			target = AB9687531F1B7590001ECBCF /* Hippo */;
 			targetProxy = AB9687741F1B7590001ECBCF /* PBXContainerItemProxy */;
+		};
+		AB9687A41F1B7E89001ECBCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CameraEngine;
+			targetProxy = AB9687A31F1B7E89001ECBCF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -438,6 +550,7 @@
 		AB96877D1F1B7590001ECBCF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T6NK4QEU4Q;
 				INFOPLIST_FILE = Hippo/Info.plist;
@@ -452,6 +565,7 @@
 		AB96877E1F1B7590001ECBCF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T6NK4QEU4Q;
 				INFOPLIST_FILE = Hippo/Info.plist;
