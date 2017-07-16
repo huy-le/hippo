@@ -14,6 +14,7 @@ final class CameraViewController: UIViewController {
     
     private let cameraEngine = CameraEngine()
     private var videoURL: URL? = CameraEngineFileManager.temporaryPath("video.mp4")
+    var isUsingFrontCamera: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,11 @@ final class CameraViewController: UIViewController {
         cameraEngine.rotationCamera = true
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard !isUsingFrontCamera else { return }
         cameraEngine.changeCurrentDevice(.front)
+        isUsingFrontCamera = true
     }
     
     override func viewDidLayoutSubviews() {
