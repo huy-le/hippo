@@ -14,6 +14,7 @@
 		AB9687621F1B7590001ECBCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB9687601F1B7590001ECBCF /* LaunchScreen.storyboard */; };
 		AB96876D1F1B7590001ECBCF /* HippoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB96876C1F1B7590001ECBCF /* HippoTests.swift */; };
 		AB9687781F1B7590001ECBCF /* HippoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687771F1B7590001ECBCF /* HippoUITests.swift */; };
+		AB9687871F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		AB9687731F1B7590001ECBCF /* HippoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HippoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9687771F1B7590001ECBCF /* HippoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippoUITests.swift; sourceTree = "<group>"; };
 		AB9687791F1B7590001ECBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug-Config.xcconfig"; sourceTree = "<group>"; };
+		AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Project-Config.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,7 @@
 		AB9687561F1B7590001ECBCF /* Hippo */ = {
 			isa = PBXGroup;
 			children = (
+				AB9687851F1B7C67001ECBCF /* Configurations */,
 				AB9687571F1B7590001ECBCF /* AppDelegate.swift */,
 				AB9687591F1B7590001ECBCF /* ViewController.swift */,
 				AB96875B1F1B7590001ECBCF /* Main.storyboard */,
@@ -123,6 +127,15 @@
 				AB9687791F1B7590001ECBCF /* Info.plist */,
 			);
 			path = HippoUITests;
+			sourceTree = "<group>";
+		};
+		AB9687851F1B7C67001ECBCF /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */,
+				AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB9687871F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig in Resources */,
 				AB9687621F1B7590001ECBCF /* LaunchScreen.storyboard in Resources */,
 				AB96875F1F1B7590001ECBCF /* Assets.xcassets in Resources */,
 				AB96875D1F1B7590001ECBCF /* Main.storyboard in Resources */,
@@ -314,6 +328,7 @@
 /* Begin XCBuildConfiguration section */
 		AB96877A1F1B7590001ECBCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -371,6 +386,7 @@
 		};
 		AB96877B1F1B7590001ECBCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -528,6 +544,7 @@
 				AB96877E1F1B7590001ECBCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB96877F1F1B7590001ECBCF /* Build configuration list for PBXNativeTarget "HippoTests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +553,7 @@
 				AB9687811F1B7590001ECBCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB9687821F1B7590001ECBCF /* Build configuration list for PBXNativeTarget "HippoUITests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +562,7 @@
 				AB9687841F1B7590001ECBCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
