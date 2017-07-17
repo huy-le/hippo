@@ -1,3 +1,5 @@
+require 'retriable'
+
 Fastlane::OUTPUT_PATH="fastlane/build"
 Fastlane::XCODE_VERSION="9.0"
 Fastlane::TEST_SCHEME="Hippo"
@@ -11,6 +13,10 @@ ENV["SCAN_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData-
 def file_name_base
   build_number = get_build_number(xcodeproj: Fastlane::PROJECT_FILE)
   "Hippo-#{lane_context[:build_type]}-#{build_number}"
+end
+
+Retriable.configure do |c|
+  c.tries = 5
 end
 
 default_platform :ios
@@ -34,6 +40,9 @@ platform :ios do
 
   desc "Run the unit tests"
   lane :test do |options|
+
+    clear_derived_data(derived_data_path: ENV["SCAN_DERIVED_DATA_PATH"])
+
     scheme = (options[:scheme] ? options[:scheme] : TEST_SCHEME)
     device = (options[:device] ? options[:device] : TEST_SIMULATOR)
 
