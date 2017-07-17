@@ -42,21 +42,21 @@ platform :ios do
     scheme = (options[:scheme] ? options[:scheme] : TEST_SCHEME)
     device = (options[:device] ? options[:device] : TEST_SIMULATOR)
 
-    # scan(
-    #   workspace: "../Hippo.xcworkspace",
-    #   clean: true,
-    #   output_types: "junit",
-    #   buildlog_path: "fastlane/test_output",
-    #   scheme: scheme,
-    #   device: device,
-    #   skip_build: true
-    # )
-    xcodebuild(
+    scan(
       workspace: "../Hippo.xcworkspace",
+      clean: true,
+      output_types: "junit",
+      buildlog_path: "fastlane/test_output",
       scheme: scheme,
-      destination: "OS=11.0,name=iPhone 7",
-      build: true,
-      test: true,
+      device: device,
+      skip_build: true
     )
+    # xcodebuild(
+    #   workspace: "../Hippo.xcworkspace",
+    #   scheme: scheme,
+    #   destination: "OS=11.0,name=iPhone 7",
+    #   build: true,
+    #   test: true,
+    # )
   end
 end
