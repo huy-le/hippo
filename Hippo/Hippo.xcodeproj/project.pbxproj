@@ -66,6 +66,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB5AFD611F1CA47C0023CB84 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
 		AB9687541F1B7590001ECBCF /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9687571F1B7590001ECBCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB96875C1F1B7590001ECBCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,12 +112,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB5AFD601F1CA4560023CB84 /* Fastlane */ = {
+			isa = PBXGroup;
+			children = (
+				AB5AFD611F1CA47C0023CB84 /* Fastfile */,
+			);
+			path = Fastlane;
+			sourceTree = "<group>";
+		};
 		AB96874B1F1B7590001ECBCF = {
 			isa = PBXGroup;
 			children = (
 				AB9687561F1B7590001ECBCF /* Hippo */,
 				AB96876B1F1B7590001ECBCF /* HippoTests */,
 				AB9687761F1B7590001ECBCF /* HippoUITests */,
+				AB5AFD601F1CA4560023CB84 /* Fastlane */,
 				AB9687551F1B7590001ECBCF /* Products */,
 				AB9687A01F1B7E7B001ECBCF /* Frameworks */,
 				AB96878A1F1B7D81001ECBCF /* Dependencies */,

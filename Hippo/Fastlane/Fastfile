@@ -1,0 +1,50 @@
+Fastlane::OUTPUT_PATH="fastlane/build"
+Fastlane::XCODE_VERSION="9.0"
+Fastlane::TEST_SCHEME="Hippo"
+Fastlane::TEST_SIMULATOR="iPhone 7"
+
+ENV["GYM_INCLUDE_BITCODE"] ||= "true"
+ENV["GYM_OUTPUT_DIRECTORY"] ||= Fastlane::OUTPUT_PATH
+ENV["GYM_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData")
+ENV["SCAN_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData-Test")
+
+def file_name_base
+  build_number = get_build_number(xcodeproj: Fastlane::PROJECT_FILE)
+  "Hippo-#{lane_context[:build_type]}-#{build_number}"
+end
+
+default_platform :ios
+platform :ios do
+
+  ##############################################################################
+  #                                                                            #
+  #                                   Setup                                    #
+  #                                                                            #
+  ##############################################################################
+
+  before_all do |lane, options|
+    xcversion(version: XCODE_VERSION)
+  end
+
+  ##############################################################################
+  #                                                                            #
+  #                                   Test                                     #
+  #                                                                            #
+  ##############################################################################
+
+  desc "Run the unit tests"
+  lane :test do |options|
+    scheme = (options[:scheme] ? options[:scheme] : TEST_SCHEME)
+    device = (options[:device] ? options[:device] : TEST_SIMULATOR)
+
+    scan(
+      workspace: "../Hippo.xcworkspace",
+      clean: true,
+      output_types: "junit",
+      buildlog_path: "fastlane/test_output",
+      scheme: scheme,
+      device: device,
+      skip_build: true
+    )
+  end
+end
