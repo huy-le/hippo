@@ -2,5 +2,7 @@ language: objective-c
 osx_image: xcode9
 
 script:
-  - set -o pipefail
-  - cd Hippo && fastlane test
+  - pwd
+  - xcrun simctl list
+  - cd Hippo
+  - bundle exec fastlane test
