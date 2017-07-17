@@ -4,10 +4,6 @@ Fastlane::OUTPUT_PATH="fastlane/build"
 Fastlane::XCODE_VERSION="9.0"
 Fastlane::TEST_SCHEME="Hippo"
 Fastlane::TEST_SIMULATOR="iPhone 7"
-
-ENV["GYM_INCLUDE_BITCODE"] ||= "true"
-ENV["GYM_OUTPUT_DIRECTORY"] ||= Fastlane::OUTPUT_PATH
-ENV["GYM_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData")
 ENV["SCAN_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData-Test")
 
 def file_name_base
@@ -46,14 +42,21 @@ platform :ios do
     scheme = (options[:scheme] ? options[:scheme] : TEST_SCHEME)
     device = (options[:device] ? options[:device] : TEST_SIMULATOR)
 
-    scan(
+    # scan(
+    #   workspace: "../Hippo.xcworkspace",
+    #   clean: true,
+    #   output_types: "junit",
+    #   buildlog_path: "fastlane/test_output",
+    #   scheme: scheme,
+    #   device: device,
+    #   skip_build: true
+    # )
+    xcodebuild(
       workspace: "../Hippo.xcworkspace",
-      clean: true,
-      output_types: "junit",
-      buildlog_path: "fastlane/test_output",
       scheme: scheme,
-      device: device,
-      skip_build: true
+      destination: "OS=11.0,name=iPhone 7",
+      build: true,
+      test: true,
     )
   end
 end

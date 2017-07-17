@@ -329,10 +329,12 @@
 					};
 					AB9687671F1B7590001ECBCF = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Manual;
 						TestTargetID = AB9687531F1B7590001ECBCF;
 					};
 					AB9687721F1B7590001ECBCF = {
 						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Manual;
 						TestTargetID = AB9687531F1B7590001ECBCF;
 					};
 				};
@@ -614,11 +616,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = T6NK4QEU4Q;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HippoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huyle.HippoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hippo.app/Hippo";
@@ -630,11 +634,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = T6NK4QEU4Q;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HippoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huyle.HippoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hippo.app/Hippo";
@@ -645,11 +651,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = T6NK4QEU4Q;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HippoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huyle.HippoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Hippo;
@@ -660,11 +668,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = T6NK4QEU4Q;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HippoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.huyle.HippoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Hippo;

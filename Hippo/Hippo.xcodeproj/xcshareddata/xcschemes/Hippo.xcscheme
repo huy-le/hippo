@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Hippo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AB9687721F1B7590001ECBCF"
+               BuildableName = "HippoUITests.xctest"
+               BlueprintName = "HippoUITests"
+               ReferencedContainer = "container:Hippo.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -36,16 +50,6 @@
                BlueprintIdentifier = "AB9687671F1B7590001ECBCF"
                BuildableName = "HippoTests.xctest"
                BlueprintName = "HippoTests"
-               ReferencedContainer = "container:Hippo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AB9687721F1B7590001ECBCF"
-               BuildableName = "HippoUITests.xctest"
-               BlueprintName = "HippoUITests"
                ReferencedContainer = "container:Hippo.xcodeproj">
             </BuildableReference>
          </TestableReference>
