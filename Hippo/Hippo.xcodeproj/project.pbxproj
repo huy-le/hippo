@@ -14,10 +14,10 @@
 		AB96876D1F1B7590001ECBCF /* HippoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB96876C1F1B7590001ECBCF /* HippoTests.swift */; };
 		AB9687781F1B7590001ECBCF /* HippoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687771F1B7590001ECBCF /* HippoUITests.swift */; };
 		AB9687871F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */; };
-		AB9687A11F1B7E89001ECBCF /* CameraEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */; };
-		AB9687A21F1B7E89001ECBCF /* CameraEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C85B81F1B825A004D8893 /* CameraViewController.swift */; };
 		AB9C85BC1F1C03E9004D8893 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C85BB1F1C03E9004D8893 /* VideoPlayerViewController.swift */; };
+		ABB9B5F91F1CA3AB0021552A /* CameraEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB9B5F81F1CA39F0021552A /* CameraEngine.framework */; };
+		ABB9B5FA1F1CA3AB0021552A /* CameraEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABB9B5F81F1CA39F0021552A /* CameraEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,16 +35,16 @@
 			remoteGlobalIDString = AB9687531F1B7590001ECBCF;
 			remoteInfo = Hippo;
 		};
-		AB96879E1F1B7E73001ECBCF /* PBXContainerItemProxy */ = {
+		ABB9B5F71F1CA39F0021552A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */;
+			containerPortal = ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = BBE9B7B71D8C41D1009F2670;
 			remoteInfo = CameraEngine;
 		};
-		AB9687A31F1B7E89001ECBCF /* PBXContainerItemProxy */ = {
+		ABB9B5FB1F1CA3AB0021552A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */;
+			containerPortal = ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = BBE9B7B61D8C41D1009F2670;
 			remoteInfo = CameraEngine;
@@ -58,7 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AB9687A21F1B7E89001ECBCF /* CameraEngine.framework in Embed Frameworks */,
+				ABB9B5FA1F1CA3AB0021552A /* CameraEngine.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,9 +80,9 @@
 		AB9687791F1B7590001ECBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug-Config.xcconfig"; sourceTree = "<group>"; };
 		AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Project-Config.xcconfig"; sourceTree = "<group>"; };
-		AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CameraEngine.xcodeproj; path = ../../Carthage/Checkouts/CameraEngine/CameraEngine.xcodeproj; sourceTree = "<group>"; };
 		AB9C85B81F1B825A004D8893 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		AB9C85BB1F1C03E9004D8893 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CameraEngine.xcodeproj; path = Carthage/Checkouts/CameraEngine/CameraEngine.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB9687A11F1B7E89001ECBCF /* CameraEngine.framework in Frameworks */,
+				ABB9B5F91F1CA3AB0021552A /* CameraEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,17 +177,9 @@
 		AB96878A1F1B7D81001ECBCF /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */,
+				ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */,
 			);
 			path = Dependencies;
-			sourceTree = "<group>";
-		};
-		AB96879B1F1B7E73001ECBCF /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		AB9687A01F1B7E7B001ECBCF /* Frameworks */ = {
@@ -246,6 +238,14 @@
 			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		ABB9B5F41F1CA39F0021552A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABB9B5F81F1CA39F0021552A /* CameraEngine.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -261,7 +261,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				AB9687A41F1B7E89001ECBCF /* PBXTargetDependency */,
+				ABB9B5FC1F1CA3AB0021552A /* PBXTargetDependency */,
 			);
 			name = Hippo;
 			productName = Hippo;
@@ -340,8 +340,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = AB96879B1F1B7E73001ECBCF /* Products */;
-					ProjectRef = AB96879A1F1B7E73001ECBCF /* CameraEngine.xcodeproj */;
+					ProductGroup = ABB9B5F41F1CA39F0021552A /* Products */;
+					ProjectRef = ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -354,11 +354,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		AB96879F1F1B7E73001ECBCF /* CameraEngine.framework */ = {
+		ABB9B5F81F1CA39F0021552A /* CameraEngine.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CameraEngine.framework;
-			remoteRef = AB96879E1F1B7E73001ECBCF /* PBXContainerItemProxy */;
+			remoteRef = ABB9B5F71F1CA39F0021552A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -431,10 +431,10 @@
 			target = AB9687531F1B7590001ECBCF /* Hippo */;
 			targetProxy = AB9687741F1B7590001ECBCF /* PBXContainerItemProxy */;
 		};
-		AB9687A41F1B7E89001ECBCF /* PBXTargetDependency */ = {
+		ABB9B5FC1F1CA3AB0021552A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CameraEngine;
-			targetProxy = AB9687A31F1B7E89001ECBCF /* PBXContainerItemProxy */;
+			targetProxy = ABB9B5FB1F1CA3AB0021552A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
