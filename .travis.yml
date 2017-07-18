@@ -6,3 +6,8 @@ script:
   - cd Hippo
   - bundle install
   - bundle exec fastlane test
+
+notifications:
+  email:
+    recipients:
+      - lmn.huy+travisci@gmail.com
