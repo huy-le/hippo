@@ -26,6 +26,15 @@ platform :ios do
 
   before_all do |lane, options|
     xcversion(version: XCODE_VERSION)
+    kill_simulator
+  end
+
+  desc "Kill simulator"
+  lane :kill_simulator do |options|
+    sh "killall Simulator 2> /dev/null;"
+    sh "killall -9 com.apple.CoreSimulator.CoreSimulatorService 2> /dev/null"
+    sh "xcrun simctl erase all"
+    sh "defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0"
   end
 
   ##############################################################################
@@ -36,7 +45,6 @@ platform :ios do
 
   desc "Run the unit tests"
   lane :test do |options|
-
     clear_derived_data(derived_data_path: ENV["SCAN_DERIVED_DATA_PATH"])
 
     scheme = (options[:scheme] ? options[:scheme] : TEST_SCHEME)
