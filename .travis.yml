@@ -7,3 +7,6 @@ script:
   - cd Hippo
   - bundle install
   - bundle exec fastlane test
+
+after_success:
+  - sleep 5
