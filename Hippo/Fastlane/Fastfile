@@ -31,7 +31,7 @@ platform :ios do
 
   desc "Kill simulator"
   lane :kill_simulator do |options|
-    sh "killall Simulator 2> /dev/null;"
+    # sh "killall Simulator 2> /dev/null;"
     sh "killall -9 com.apple.CoreSimulator.CoreSimulatorService 2> /dev/null"
     sh "xcrun simctl erase all"
     sh "defaults write com.apple.iphonesimulator ConnectHardwareKeyboard 0"
