@@ -18,14 +18,15 @@ final class CameraViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard Platform.isDevice else { return }
         cameraEngine.startSession()
         cameraEngine.cameraFocus = .continuousAutoFocus
-        // FIX: Test fail
-        // cameraEngine.rotationCamera = true
+        cameraEngine.rotationCamera = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        guard Platform.isDevice else { return }
         guard !isUsingFrontCamera else { return }
         cameraEngine.changeCurrentDevice(.front)
         isUsingFrontCamera = true
@@ -33,8 +34,8 @@ final class CameraViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        guard Platform.isDevice else { return }
         guard let layer = self.cameraEngine.previewLayer else { return }
-        
         layer.frame = self.view.bounds
         self.view.layer.insertSublayer(layer, at: 0)
         self.view.layer.masksToBounds = true

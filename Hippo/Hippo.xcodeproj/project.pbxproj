@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB31705A1F1EC3650018DE9F /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3170591F1EC3650018DE9F /* Platform.swift */; };
 		AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687571F1B7590001ECBCF /* AppDelegate.swift */; };
 		AB96875D1F1B7590001ECBCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB96875B1F1B7590001ECBCF /* Main.storyboard */; };
 		AB96875F1F1B7590001ECBCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB96875E1F1B7590001ECBCF /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB3170591F1EC3650018DE9F /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		AB5AFD611F1CA47C0023CB84 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
 		AB9687541F1B7590001ECBCF /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9687571F1B7590001ECBCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB3170581F1EC3580018DE9F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AB3170591F1EC3650018DE9F /* Platform.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		AB5AFD601F1CA4560023CB84 /* Fastlane */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 		AB9687561F1B7590001ECBCF /* Hippo */ = {
 			isa = PBXGroup;
 			children = (
+				AB3170581F1EC3580018DE9F /* Core */,
 				AB9687A81F1B7EE8001ECBCF /* Screens */,
 				AB9687A71F1B7EDE001ECBCF /* Components */,
 				AB9687A61F1B7ECF001ECBCF /* Storyboards */,
@@ -410,6 +421,7 @@
 			files = (
 				AB9C85BC1F1C03E9004D8893 /* VideoPlayerViewController.swift in Sources */,
 				AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */,
+				AB31705A1F1EC3650018DE9F /* Platform.swift in Sources */,
 				AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
