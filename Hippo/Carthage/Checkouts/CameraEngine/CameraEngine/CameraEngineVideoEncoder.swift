@@ -127,7 +127,8 @@ class CameraEngineVideoEncoder {
         
         self.videoInputWriter = AVAssetWriterInput(mediaType: AVMediaTypeVideo, outputSettings: videoOutputSettings)
         self.videoInputWriter.expectsMediaDataInRealTime = true
-        self.videoInputWriter.transform = CGAffineTransform(rotationAngle: UIDevice.orientationTransformation())
+        let transform = CGAffineTransform(rotationAngle: UIDevice.orientationTransformation())
+        self.videoInputWriter.transform = transform.scaledBy(x: 1, y: -1)
         
         self.audioInputWriter = AVAssetWriterInput(mediaType: AVMediaTypeAudio, outputSettings: audioOutputSettings)
         self.audioInputWriter.expectsMediaDataInRealTime = true
