@@ -22,6 +22,11 @@ final class VideoPlayerViewController: AVPlayerViewController {
         view.addGestureRecognizer(closeGesture)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        player?.pause()
+    }
+    
     @objc private func close() {
         dismiss(animated: true, completion: nil)
     }
