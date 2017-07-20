@@ -13,8 +13,17 @@ final class VideoPlayerViewController: AVPlayerViewController {
     
     var videoURL: URL!
     
+    private let closeGesture = UISwipeGestureRecognizer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        closeGesture.direction = .down
+        closeGesture.addTarget(self, action: #selector(close))
+        view.addGestureRecognizer(closeGesture)
+    }
+    
+    @objc private func close() {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
