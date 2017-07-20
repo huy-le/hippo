@@ -9,9 +9,22 @@
 import UIKit
 import AVKit
 
-final class VideoPlayerViewController: UIViewController {
+final class VideoPlayerViewController: AVPlayerViewController {
+    
+    var videoURL: URL!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.player = AVPlayer(url: self.videoURL)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.player?.play()
+        }
     }
 }

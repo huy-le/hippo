@@ -14,7 +14,8 @@ final class CameraViewController: UIViewController {
     
     private let cameraEngine = CameraEngine()
     private var videoURL: URL? = CameraEngineFileManager.temporaryPath("video.mp4")
-    var isUsingFrontCamera: Bool = false
+    lazy private var reviewViewController: VideoPlayerViewController = VideoPlayerViewController()
+    private var isUsingFrontCamera: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,13 +63,8 @@ final class CameraViewController: UIViewController {
                 assertionFailure(error.description)
             }
             DispatchQueue.main.async {
-                guard let url = url else { return }
-                let player = AVPlayer(url: url)
-                let vc = AVPlayerViewController()
-                vc.player = player
-                self.present(vc, animated: true) {
-                    player.play()
-                }
+                self.reviewViewController.videoURL = url
+                self.present(self.reviewViewController, animated: false, completion: nil)
             }
         }
         print("Start recording")
