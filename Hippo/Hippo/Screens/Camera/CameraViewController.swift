@@ -41,9 +41,15 @@ final class CameraViewController: UIViewController {
         self.view.layer.masksToBounds = true
     }
     
-    func touchCapture(_ sender: UIButton) {
+    @IBAction func touchButton(_ sender: RecordButton) {
+        sender.isSelected = !sender.isSelected
+        capture()
+    }
+    
+    func capture() {
+        guard Platform.isDevice else { return }
         guard !cameraEngine.isRecording else {
-            touchDone(sender)
+            done()
             return
         }
         guard let url = videoURL else {
@@ -67,13 +73,8 @@ final class CameraViewController: UIViewController {
         }
         print("Start recording")
     }
-    
-    @IBAction func touchButton(_ sender: RecordButton) {
-        sender.isSelected = !sender.isSelected
-        touchCapture(sender)
-    }
-    
-    func touchDone(_ sender: Any) {
+   
+    func done() {
         print("Stop recording")
         cameraEngine.stopRecordingVideo()
     }

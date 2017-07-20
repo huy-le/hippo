@@ -42,7 +42,10 @@ final class RecordButton: UIButton {
             if self.isHighlighted == false && self.isSelected == false {
                 self.circleLayer.add(Animation().path(to: self.highlightedCirclePath()), forKey: nil)
             }
-            }.dispose(by: &disposedBag)
+            if self.isHighlighted == false && self.isSelected == true {
+                self.circleLayer.add(Animation().path(to: self.highlightedSquarePath()), forKey: nil)
+            }
+        }.dispose(by: &disposedBag)
         
         observe(\.isSelected) { (_, changed) in
             print(self.isSelected)
@@ -51,7 +54,7 @@ final class RecordButton: UIButton {
             } else {
                 self.circleLayer.add(Animation().path(to: self.normalCirclePath()), forKey: nil)
             }
-            }.dispose(by: &disposedBag)
+        }.dispose(by: &disposedBag)
     }
     
     private func lazy_circleLayer() -> CAShapeLayer {
@@ -75,6 +78,11 @@ final class RecordButton: UIButton {
     
     private func selectedSquarePath() -> CGPath {
         let bezier = SquarePath(center: CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2), side: 30).bezierPath()
+        return bezier.cgPath
+    }
+    
+    private func highlightedSquarePath() -> CGPath {
+        let bezier = SquarePath(center: CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2), side: 26).bezierPath()
         return bezier.cgPath
     }
 }

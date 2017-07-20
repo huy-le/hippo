@@ -300,6 +300,7 @@ public class CameraEngine: NSObject {
 				UIDevice.current.beginGeneratingDeviceOrientationNotifications()
 			}
             NotificationCenter.default.addObserver(forName: NSNotification.Name.UIDeviceOrientationDidChange, object: nil, queue: OperationQueue.main) { (_) -> Void in
+                guard self.previewLayer != nil else { return }
                 self.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
             }
         }
