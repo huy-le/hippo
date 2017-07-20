@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		AB31705A1F1EC3650018DE9F /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3170591F1EC3650018DE9F /* Platform.swift */; };
+		AB75C2C31F202B8A0013CDDC /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C21F202B8A0013CDDC /* RecordButton.swift */; };
+		AB75C2C51F202BA70013CDDC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C41F202BA70013CDDC /* Style.swift */; };
+		AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C61F202BC80013CDDC /* MyAsset.swift */; };
+		AB75C2CA1F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C91F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift */; };
 		AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687571F1B7590001ECBCF /* AppDelegate.swift */; };
 		AB96875D1F1B7590001ECBCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB96875B1F1B7590001ECBCF /* Main.storyboard */; };
 		AB96875F1F1B7590001ECBCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB96875E1F1B7590001ECBCF /* Assets.xcassets */; };
@@ -69,6 +73,10 @@
 /* Begin PBXFileReference section */
 		AB3170591F1EC3650018DE9F /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		AB5AFD611F1CA47C0023CB84 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
+		AB75C2C21F202B8A0013CDDC /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		AB75C2C41F202BA70013CDDC /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		AB75C2C61F202BC80013CDDC /* MyAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAsset.swift; sourceTree = "<group>"; };
+		AB75C2C91F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSKeyValueObservation+Disposable.swift"; sourceTree = "<group>"; };
 		AB9687541F1B7590001ECBCF /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9687571F1B7590001ECBCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB96875C1F1B7590001ECBCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				AB3170591F1EC3650018DE9F /* Platform.swift */,
+				AB75C2C41F202BA70013CDDC /* Style.swift */,
+				AB75C2C91F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -213,6 +223,7 @@
 		AB9687A51F1B7EAB001ECBCF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AB75C2C61F202BC80013CDDC /* MyAsset.swift */,
 				AB96875E1F1B7590001ECBCF /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -247,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				AB9C85B81F1B825A004D8893 /* CameraViewController.swift */,
+				AB75C2C21F202B8A0013CDDC /* RecordButton.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -420,9 +432,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB9C85BC1F1C03E9004D8893 /* VideoPlayerViewController.swift in Sources */,
+				AB75C2C51F202BA70013CDDC /* Style.swift in Sources */,
 				AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */,
+				AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */,
 				AB31705A1F1EC3650018DE9F /* Platform.swift in Sources */,
+				AB75C2CA1F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift in Sources */,
 				AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */,
+				AB75C2C31F202B8A0013CDDC /* RecordButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

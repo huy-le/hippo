@@ -3,7 +3,7 @@
 
 extension Style {
 
-    public enum MyAsset: String, StyleAssetType {
+    public enum MyAsset: String, UIImageConvertable {
         case record_button_outer = "record_button_outer"
     }
 }

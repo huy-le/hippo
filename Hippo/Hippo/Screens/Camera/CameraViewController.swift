@@ -19,16 +19,16 @@ final class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard Platform.isDevice else { return }
-        cameraEngine.startSession()
-        cameraEngine.cameraFocus = .continuousAutoFocus
-        cameraEngine.rotationCamera = true
+        self.cameraEngine.startSession()
+        self.cameraEngine.cameraFocus = .continuousAutoFocus
+        self.cameraEngine.rotationCamera = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard Platform.isDevice else { return }
         guard !isUsingFrontCamera else { return }
-        cameraEngine.changeCurrentDevice(.front)
+        self.cameraEngine.changeCurrentDevice(.front)
         isUsingFrontCamera = true
     }
     
@@ -41,19 +41,21 @@ final class CameraViewController: UIViewController {
         self.view.layer.masksToBounds = true
     }
     
-    @IBAction func touchCapture(_ sender: UIButton) {
+    func touchCapture(_ sender: UIButton) {
+        guard !cameraEngine.isRecording else {
+            touchDone(sender)
+            return
+        }
         guard let url = videoURL else {
             assertionFailure("url is nil")
             return
         }
         _ = try? FileManager().removeItem(at: url)
-        sender.isEnabled = false
         cameraEngine.startRecordingVideo(url) { (url, error) -> (Void) in
             if let error = error {
                 assertionFailure(error.description)
             }
             DispatchQueue.main.async {
-                sender.isEnabled = true
                 guard let url = url else { return }
                 let player = AVPlayer(url: url)
                 let vc = AVPlayerViewController()
@@ -66,7 +68,12 @@ final class CameraViewController: UIViewController {
         print("Start recording")
     }
     
-    @IBAction func touchDone(_ sender: Any) {
+    @IBAction func touchButton(_ sender: RecordButton) {
+        sender.isSelected = !sender.isSelected
+        touchCapture(sender)
+    }
+    
+    func touchDone(_ sender: Any) {
         print("Stop recording")
         cameraEngine.stopRecordingVideo()
     }
