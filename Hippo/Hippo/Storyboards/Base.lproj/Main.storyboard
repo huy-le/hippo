@@ -18,27 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KLo-4C-O6f">
-                                <rect key="frame" x="30" y="601" width="315" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Puj-zJ-Cch" customClass="RecordButton" customModule="Hippo" customModuleProvider="target">
-                                        <rect key="frame" x="125.5" y="0.0" width="46" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="EXM-w6-Aeq"/>
-                                            <constraint firstAttribute="width" constant="60" id="UcS-iX-Sgu"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axi-EU-bME"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Puj-zJ-Cch" customClass="RecordButton" customModule="Hippo" customModuleProvider="target">
+                                <rect key="frame" x="153" y="571" width="68" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="68" id="5y5-e5-hmP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="68" id="f7W-Ao-zOC"/>
+                                </constraints>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axi-EU-bME"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="KLo-4C-O6f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BV9-DX-d2h"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KLo-4C-O6f" secondAttribute="bottom" constant="36" id="sa0-Wo-70p"/>
+                            <constraint firstItem="Puj-zJ-Cch" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iAa-JY-qvs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Puj-zJ-Cch" secondAttribute="bottom" constant="28" id="jNf-Ex-LUt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -67,6 +67,9 @@ final class CameraViewController: UIViewController {
                 self.present(self.reviewViewController, animated: false, completion: nil)
             }
         }
+        cameraEngine.blockCompletionProgress = { duration in
+            print(duration)
+        }
         print("Start recording")
     }
    

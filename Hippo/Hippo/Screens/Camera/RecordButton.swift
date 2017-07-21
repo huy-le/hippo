@@ -51,15 +51,17 @@ final class RecordButton: UIButton {
             print(self.isSelected)
             if self.isSelected {
                 self.circleLayer.add(Animation().path(to: self.selectedSquarePath()), forKey: nil)
+                self.circleLayer.fillColor = Style.RecordButton.selectedColor.cgColor
             } else {
                 self.circleLayer.add(Animation().path(to: self.normalCirclePath()), forKey: nil)
+                self.circleLayer.fillColor = Style.RecordButton.normalColor.cgColor
             }
         }.dispose(by: &disposedBag)
     }
     
     private func lazy_circleLayer() -> CAShapeLayer {
         let layer = CAShapeLayer()
-        layer.fillColor = UIColor.red.cgColor
+        layer.fillColor = Style.RecordButton.normalColor.cgColor
         layer.path = normalCirclePath()
         return layer
     }
@@ -77,12 +79,12 @@ final class RecordButton: UIButton {
     }
     
     private func selectedSquarePath() -> CGPath {
-        let bezier = SquarePath(center: CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2), side: 30).bezierPath()
+        let bezier = SquarePath(center: CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2), side: 28).bezierPath()
         return bezier.cgPath
     }
     
     private func highlightedSquarePath() -> CGPath {
-        let bezier = SquarePath(center: CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2), side: 26).bezierPath()
+        let bezier = SquarePath(center: CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2), side: 24).bezierPath()
         return bezier.cgPath
     }
 }

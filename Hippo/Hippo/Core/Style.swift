@@ -9,7 +9,10 @@
 import UIKit
 
 struct Style {
-    
+    struct RecordButton {
+        static let normalColor = UIColor.white
+        static let selectedColor = UIColor.red
+    }
 }
 
 protocol UIImageConvertable: RawRepresentable {
