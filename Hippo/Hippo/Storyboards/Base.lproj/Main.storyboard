@@ -29,14 +29,46 @@
                                     <action selector="touchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="axi-EU-bME"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RRI-qd-uDE">
+                                <rect key="frame" x="144" y="30" width="87" height="39"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9CS-UU-132">
+                                        <rect key="frame" x="0.0" y="0.0" width="87" height="39"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="01:15" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cev-G3-aas">
+                                        <rect key="frame" x="36" y="9" width="40.5" height="21"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="87" id="Cmj-v1-i25"/>
+                                    <constraint firstAttribute="height" constant="39" id="Kte-x2-xmn"/>
+                                    <constraint firstItem="Cev-G3-aas" firstAttribute="centerY" secondItem="RRI-qd-uDE" secondAttribute="centerY" id="N6Y-De-yXH"/>
+                                    <constraint firstAttribute="trailing" secondItem="9CS-UU-132" secondAttribute="trailing" id="SFL-de-1m4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cev-G3-aas" secondAttribute="trailing" constant="15" id="Xqk-VI-s4a"/>
+                                    <constraint firstItem="9CS-UU-132" firstAttribute="leading" secondItem="RRI-qd-uDE" secondAttribute="leading" id="Zvk-Ya-WVa"/>
+                                    <constraint firstItem="9CS-UU-132" firstAttribute="top" secondItem="RRI-qd-uDE" secondAttribute="top" id="f8H-D0-XEx"/>
+                                    <constraint firstAttribute="bottom" secondItem="9CS-UU-132" secondAttribute="bottom" id="liz-Iy-Ced"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Puj-zJ-Cch" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iAa-JY-qvs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Puj-zJ-Cch" secondAttribute="bottom" constant="28" id="jNf-Ex-LUt"/>
+                            <constraint firstItem="RRI-qd-uDE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="llu-cL-Xn5"/>
+                            <constraint firstItem="RRI-qd-uDE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="xIt-eN-NFH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="durationBackgroundImageView" destination="9CS-UU-132" id="dYB-z9-T5b"/>
+                        <outlet property="durationBackgroundView" destination="RRI-qd-uDE" id="QQF-OX-bu0"/>
+                        <outlet property="durationLabel" destination="Cev-G3-aas" id="znx-0Y-AfJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

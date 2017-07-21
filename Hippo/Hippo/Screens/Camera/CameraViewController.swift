@@ -9,16 +9,25 @@
 import UIKit
 import CameraEngine
 import AVKit
+import CoreGraphics
 
 final class CameraViewController: UIViewController {
     
     private let cameraEngine = CameraEngine()
     private var videoURL: URL? = CameraEngineFileManager.temporaryPath("video.mp4")
-    lazy private var reviewViewController: VideoPlayerViewController = VideoPlayerViewController()
     private var isUsingFrontCamera: Bool = false
+    lazy private var durationTimeFormatter: DateComponentsFormatter = self.lazy_durationTimeFormatter()
+    lazy private var reviewViewController: VideoPlayerViewController = VideoPlayerViewController()
+    
+    @IBOutlet private weak var durationBackgroundView: UIView!
+    @IBOutlet private weak var durationBackgroundImageView: UIImageView!
+    @IBOutlet private weak var durationLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        durationBackgroundImageView.image = Style.MyAsset.duration_background.image
+        durationBackgroundView.backgroundColor = .clear
+        durationBackgroundView.transform = CGAffineTransform(scaleX: 0, y: 0)
         guard Platform.isDevice else { return }
         self.cameraEngine.startSession()
         self.cameraEngine.cameraFocus = .continuousAutoFocus
@@ -68,13 +77,40 @@ final class CameraViewController: UIViewController {
             }
         }
         cameraEngine.blockCompletionProgress = { duration in
-            print(duration)
+            let seconds = round(duration)
+            guard let durationDescription = self.durationTimeFormatter.string(from: seconds) else { return }
+            DispatchQueue.main.async {
+                self.durationLabel.text = "\(durationDescription)"
+            }
         }
         print("Start recording")
+        showDuration()
     }
+    
    
     func done() {
         print("Stop recording")
         cameraEngine.stopRecordingVideo()
+        hideDuration()
+    }
+    
+    private func showDuration() {
+        UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.7) {
+            self.durationBackgroundView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }.startAnimation()
+    }
+    
+    private func hideDuration() {
+        UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.7) {
+            self.durationBackgroundView.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
+        }.startAnimation()
+    }
+    
+    private func lazy_durationTimeFormatter() -> DateComponentsFormatter {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .second]
+        formatter.unitsStyle = .positional
+        formatter.zeroFormattingBehavior = .pad
+        return formatter
     }
 }
