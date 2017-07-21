@@ -94,7 +94,7 @@ final class PermissionViewController: UIViewController {
     }
     
     func openCameraIfNeeded() {
-        guard isAuthenticatedForDevices else { return }
+        guard isAuthenticatedForDevices || !Platform.isDevice else { return }
         performSegue(withIdentifier: "openCamera", sender: nil)
     }
     
