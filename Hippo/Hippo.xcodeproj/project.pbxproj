@@ -12,6 +12,7 @@
 		AB75C2C51F202BA70013CDDC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C41F202BA70013CDDC /* Style.swift */; };
 		AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C61F202BC80013CDDC /* MyAsset.swift */; };
 		AB75C2CA1F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C91F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift */; };
+		AB8854351F21C0660020CB60 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8854341F21C0660020CB60 /* PermissionViewController.swift */; };
 		AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687571F1B7590001ECBCF /* AppDelegate.swift */; };
 		AB96875D1F1B7590001ECBCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB96875B1F1B7590001ECBCF /* Main.storyboard */; };
 		AB96875F1F1B7590001ECBCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB96875E1F1B7590001ECBCF /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		AB75C2C41F202BA70013CDDC /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		AB75C2C61F202BC80013CDDC /* MyAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAsset.swift; sourceTree = "<group>"; };
 		AB75C2C91F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSKeyValueObservation+Disposable.swift"; sourceTree = "<group>"; };
+		AB8854341F21C0660020CB60 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		AB9687541F1B7590001ECBCF /* Hippo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hippo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB9687571F1B7590001ECBCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB96875C1F1B7590001ECBCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 				AB5AFD611F1CA47C0023CB84 /* Fastfile */,
 			);
 			path = Fastlane;
+			sourceTree = "<group>";
+		};
+		AB8854331F21BFDE0020CB60 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				AB8854341F21C0660020CB60 /* PermissionViewController.swift */,
+			);
+			path = Permission;
 			sourceTree = "<group>";
 		};
 		AB96874B1F1B7590001ECBCF = {
@@ -248,6 +258,7 @@
 		AB9687A81F1B7EE8001ECBCF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				AB8854331F21BFDE0020CB60 /* Permission */,
 				AB9C85BA1F1C03C2004D8893 /* VideoPlayer */,
 				AB9C85B71F1B8249004D8893 /* Camera */,
 			);
@@ -432,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB9C85BC1F1C03E9004D8893 /* VideoPlayerViewController.swift in Sources */,
+				AB8854351F21C0660020CB60 /* PermissionViewController.swift in Sources */,
 				AB75C2C51F202BA70013CDDC /* Style.swift in Sources */,
 				AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */,
 				AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */,

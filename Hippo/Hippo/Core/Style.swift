@@ -13,6 +13,17 @@ struct Style {
         static let normalColor = UIColor.white
         static let selectedColor = UIColor.red
     }
+    
+    struct PermissionScreen {
+        struct AllowButton {
+            static let textColor = UIColor.white
+            static let backgroundColor = UIColor(red: 0.20, green: 0.27, blue: 0.39, alpha: 1.00)
+        }
+        
+        struct InfoLabel {
+            static let textColor = UIColor(red: 0.04, green: 0.12, blue: 0.26, alpha: 1.00)
+        }
+    }
 }
 
 protocol UIImageConvertable: RawRepresentable {

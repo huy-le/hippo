@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Record your face!</string>
+	<string>Use to capture your mouth position.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Record your voice!</string>
+	<string>Use to record your accent.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
