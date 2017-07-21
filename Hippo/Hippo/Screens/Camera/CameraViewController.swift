@@ -36,10 +36,6 @@ final class CameraViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard Platform.isDevice else { return }
-        guard !isUsingFrontCamera else { return }
-        self.cameraEngine.changeCurrentDevice(.front)
-        isUsingFrontCamera = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,7 +69,7 @@ final class CameraViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.reviewViewController.videoURL = url
-                self.present(self.reviewViewController, animated: false, completion: nil)
+                self.present(self.reviewViewController, animated: true, completion: nil)
             }
         }
         cameraEngine.blockCompletionProgress = { duration in

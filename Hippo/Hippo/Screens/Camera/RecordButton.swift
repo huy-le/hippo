@@ -24,8 +24,6 @@ final class RecordButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        circleLayer.removeFromSuperlayer()
-        layer.addSublayer(circleLayer)
     }
     
     var disposedBag: [NSKeyValueObservation] = []
@@ -57,6 +55,7 @@ final class RecordButton: UIButton {
                 self.circleLayer.fillColor = Style.RecordButton.normalColor.cgColor
             }
         }.dispose(by: &disposedBag)
+        layer.addSublayer(circleLayer)
     }
     
     private func lazy_circleLayer() -> CAShapeLayer {

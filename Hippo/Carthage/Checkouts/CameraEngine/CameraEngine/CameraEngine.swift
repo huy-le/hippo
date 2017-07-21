@@ -107,7 +107,7 @@ public class CameraEngine: NSObject {
         return layer
     }()
     
-    private var _sessionPresset: CameraEngineSessionPreset = .inputPriority
+    private var _sessionPresset: CameraEngineSessionPreset = .high
     public var sessionPresset: CameraEngineSessionPreset! {
         get {
             return self._sessionPresset
@@ -204,7 +204,9 @@ public class CameraEngine: NSObject {
         }
         set {
             _rotationCamera = newValue
-            self.handleDeviceOrientation()
+            sessionQueue.async {
+                self.handleDeviceOrientation()
+            }
         }
     }
     
@@ -301,7 +303,10 @@ public class CameraEngine: NSObject {
 			}
             NotificationCenter.default.addObserver(forName: NSNotification.Name.UIDeviceOrientationDidChange, object: nil, queue: OperationQueue.main) { (_) -> Void in
                 guard self.previewLayer != nil else { return }
-                self.previewLayer.connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
+                guard let connection = self.previewLayer.connection else {
+                    return
+                }
+                connection.videoOrientation = AVCaptureVideoOrientation.orientationFromUIDeviceOrientation(UIDevice.current.orientation)
             }
         }
         else {

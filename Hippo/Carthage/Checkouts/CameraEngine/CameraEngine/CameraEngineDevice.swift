@@ -102,6 +102,6 @@ class CameraEngineDevice {
     init() {
         self.configureDeviceCamera()
         self.configureDeviceMic()
-        self.changeCurrentDevice(.back)
+        self.changeCurrentDevice(.front)
     }
 }
