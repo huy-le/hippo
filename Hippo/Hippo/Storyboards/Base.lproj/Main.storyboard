@@ -83,7 +83,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hjy-7u-s6I">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hippo_head" translatesAutoresizingMaskIntoConstraints="NO" id="hjy-7u-s6I">
                                 <rect key="frame" x="56" y="125" width="263" height="263.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="263" id="JJu-Ga-tSu"/>
@@ -134,4 +134,7 @@
             <point key="canvasLocation" x="-812" y="38.23088455772114"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hippo_head" width="184" height="173"/>
+    </resources>
 </document>
