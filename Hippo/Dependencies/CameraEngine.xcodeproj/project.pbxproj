@@ -120,7 +120,7 @@
 					BBE9B7B61D8C41D1009F2670 = {
 						CreatedOnToolsVersion = 8.0;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};

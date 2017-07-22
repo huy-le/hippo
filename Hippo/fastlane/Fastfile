@@ -1,18 +1,29 @@
-require 'retriable'
 
 Fastlane::OUTPUT_PATH="fastlane/build"
 Fastlane::XCODE_VERSION="9.0"
 Fastlane::TEST_SCHEME="Hippo"
 Fastlane::TEST_SIMULATOR="iPhone 7"
+Fastlane::PROJECT_FOLDER="Hippo"
+Fastlane::PROJECT_FILE="Hippo.xcodeproj"
+Fastlane::INFO_PLIST_PATH="Hippo/Info.plist"
+
+BUILD_SCHEME = "Hippo"
+BUNDLE_ID = "com.huyle.hippo.app"
+
+ENV["GYM_INCLUDE_BITCODE"] ||= "true"
+ENV["GYM_OUTPUT_DIRECTORY"] ||= Fastlane::OUTPUT_PATH
+ENV["GYM_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData")
 ENV["SCAN_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData-Test")
 
-def file_name_base
-  build_number = get_build_number(xcodeproj: Fastlane::PROJECT_FILE)
-  "Hippo-#{lane_context[:build_type]}-#{build_number}"
-end
+IS_CI = ENV['CI']
+USERNAME = ENV["ITC_USERNAME"]
+BRANCH = ENV["TRAVIS_BRANCH"]
+TAG = ENV["TRAVIS_TAG"]
 
-Retriable.configure do |c|
-  c.tries = 5
+def file_name_base
+  version_number  = get_version_number(xcodeproj: Fastlane::PROJECT_FILE)
+  build_number    = get_build_number(xcodeproj: Fastlane::PROJECT_FILE)
+  "Hippo-#{lane_context[:build_type]}-#{version_number}-#{build_number}"
 end
 
 default_platform :ios
@@ -25,7 +36,7 @@ platform :ios do
   ##############################################################################
 
   before_all do |lane, options|
-    xcversion(version: XCODE_VERSION)
+    xcversion(version: Fastlane::XCODE_VERSION)
   end
 
   ##############################################################################
@@ -38,8 +49,8 @@ platform :ios do
   lane :test do |options|
     clear_derived_data(derived_data_path: ENV["SCAN_DERIVED_DATA_PATH"])
 
-    scheme = (options[:scheme] ? options[:scheme] : TEST_SCHEME)
-    device = (options[:device] ? options[:device] : TEST_SIMULATOR)
+    scheme = (options[:scheme] ? options[:scheme] : Fastlane::TEST_SCHEME)
+    device = (options[:device] ? options[:device] : Fastlane::TEST_SIMULATOR)
 
     scan(
       workspace: "../Hippo.xcworkspace",
@@ -50,12 +61,69 @@ platform :ios do
       device: device,
       skip_build: true
     )
-    # xcodebuild(
-    #   workspace: "../Hippo.xcworkspace",
-    #   scheme: scheme,
-    #   destination: "OS=11.0,name=iPhone 7",
-    #   build: true,
-    #   test: true,
-    # )
+  end
+
+  lane :ver do
+    increment_version_number(
+      bump_type: "major"
+      # version_number: "1.0.0"
+    )
+    increment_build_number(
+      build_number: "1"
+    )
+  end
+
+  lane :release_beta do
+    release
+    beta
+  end
+
+  lane :beta do
+    testflight(
+      skip_submission: true,
+      username: USERNAME,
+    )
+    notification(subtitle: "Finished uploading", message: "Wait for processing...")
+  end
+
+  desc "Make release configuration build"
+  lane :release do
+
+    increment_build_number(xcodeproj: Fastlane::PROJECT_FILE)
+    lane_context[:build_type] = "Release"
+
+    # verify_xcode
+
+    update_app_identifier(
+      xcodeproj: Fastlane::PROJECT_FILE,
+      plist_path: Fastlane::INFO_PLIST_PATH,
+      app_identifier: "com.huyle.hippo.app"
+    )
+
+    update_info_plist(
+      xcodeproj: Fastlane::PROJECT_FILE,
+      plist_path: Fastlane::INFO_PLIST_PATH,
+      display_name: "Hippo"
+    )
+
+    gym(
+      clean: true,
+      scheme: BUILD_SCHEME,
+      include_bitcode: true,
+      output_name: "#{file_name_base}.ipa",
+      archive_path: File.join(Fastlane::OUTPUT_PATH, "#{file_name_base}.xcarchive"),
+      export_method: "app-store",
+      codesigning_identity: "iPhone Distribution: Huy Le (8P8UGV8V2N)",
+      export_team_id: "8P8UGV8V2N",
+      xcargs: "DEVELOPMENT_TEAM=8P8UGV8V2N \
+      RELEASE_PROVISIONING_PROFILE=\"Hippo AppStore\"",
+      export_xcargs: "DEVELOPMENT_TEAM=8P8UGV8V2N \
+      RELEASE_PROVISIONING_PROFILE=\"Hippo AppStore\"",
+      export_options: {
+        provisioningProfiles: {
+          "com.huyle.hippo.app": "Hippo AppStore"
+        }
+      }
+    )
   end
 end

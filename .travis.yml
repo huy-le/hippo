@@ -1,13 +1,8 @@
 language: objective-c
 osx_image: xcode9
 
-script:
-  - pwd
+before_install:
   - cd Hippo
   - bundle install
-  - bundle exec fastlane test
-
-notifications:
-  email:
-    recipients:
-      - lmn.huy+travisci@gmail.com
+script:
+  - bundle exec fastlane release_beta
