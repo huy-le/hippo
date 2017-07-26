@@ -26,8 +26,6 @@ final class RecordButton: UIButton {
         super.layoutSubviews()
     }
     
-    var disposedBag: [NSKeyValueObservation] = []
-    
     private var isAnimated: Bool = false
     
     private func setupView() {
@@ -36,26 +34,41 @@ final class RecordButton: UIButton {
         tintColor = .clear
         setTitle(nil, for: .normal)
         
-        observe(\.isTracking) { (_, changed) in
-            if self.isHighlighted == false && self.isSelected == false {
-                self.circleLayer.add(Animation().path(to: self.highlightedCirclePath()), forKey: nil)
-            }
-            if self.isHighlighted == false && self.isSelected == true {
-                self.circleLayer.add(Animation().path(to: self.highlightedSquarePath()), forKey: nil)
-            }
-        }.dispose(by: &disposedBag)
+        addObserver(self, forKeyPath: #keyPath(isTracking), options: .new, context: nil)
+        addObserver(self, forKeyPath: #keyPath(isSelected), options: .new, context: nil)
         
-        observe(\.isSelected) { (_, changed) in
-            print(self.isSelected)
-            if self.isSelected {
-                self.circleLayer.add(Animation().path(to: self.selectedSquarePath()), forKey: nil)
-                self.circleLayer.fillColor = Style.RecordButton.selectedColor.cgColor
-            } else {
-                self.circleLayer.add(Animation().path(to: self.normalCirclePath()), forKey: nil)
-                self.circleLayer.fillColor = Style.RecordButton.normalColor.cgColor
-            }
-        }.dispose(by: &disposedBag)
         layer.addSublayer(circleLayer)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let keyPath = keyPath else { return }
+        switch keyPath {
+        case #keyPath(isTracking):
+            isTrackingOnChanged()
+        case #keyPath(isSelected):
+            isSelectedOnChanged()
+        default:
+            break
+        }
+    }
+    
+    private func isTrackingOnChanged() {
+        if self.isHighlighted == false && self.isSelected == false {
+            self.circleLayer.add(Animation().path(to: self.highlightedCirclePath()), forKey: nil)
+        }
+        if self.isHighlighted == false && self.isSelected == true {
+            self.circleLayer.add(Animation().path(to: self.highlightedSquarePath()), forKey: nil)
+        }
+    }
+    
+    private func isSelectedOnChanged() {
+        if self.isSelected {
+            self.circleLayer.add(Animation().path(to: self.selectedSquarePath()), forKey: nil)
+            self.circleLayer.fillColor = Style.RecordButton.selectedColor.cgColor
+        } else {
+            self.circleLayer.add(Animation().path(to: self.normalCirclePath()), forKey: nil)
+            self.circleLayer.fillColor = Style.RecordButton.normalColor.cgColor
+        }
     }
     
     private func lazy_circleLayer() -> CAShapeLayer {

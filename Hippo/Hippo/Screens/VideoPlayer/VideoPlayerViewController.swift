@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 
 final class VideoPlayerViewController: AVPlayerViewController {
     

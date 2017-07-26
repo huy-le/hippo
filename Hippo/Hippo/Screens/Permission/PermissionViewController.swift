@@ -8,30 +8,31 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 import Speech
 
 final class PermissionViewController: UIViewController {
-    
+
     @IBOutlet private weak var placeholderImageView: UIImageView!
     @IBOutlet private weak var infoLabel: UILabel!
     @IBOutlet private weak var allowButton: UIButton!
-    
+
     var isAuthenticatedForDevices: Bool {
         return bothAuthenticationStatus(were: .authorized)
     }
-    
+
     var videoAuth: AVAuthorizationStatus {
-        return AVCaptureDevice.authorizationStatus(for: .video)
+        return AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
     }
-    
+
     var audioAuth: AVAuthorizationStatus {
-        return AVCaptureDevice.authorizationStatus(for: .audio)
+        return AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeAudio)
     }
-    
+
     var authentications: (AVAuthorizationStatus, AVAuthorizationStatus) {
         return (videoAuth, audioAuth)
     }
-    
+
     func bothAuthenticationStatus(either status: AVAuthorizationStatus) -> Bool {
         switch authentications {
         case (_, status):
@@ -42,7 +43,7 @@ final class PermissionViewController: UIViewController {
             return false
         }
     }
-    
+
     func bothAuthenticationStatus(were status: AVAuthorizationStatus) -> Bool {
         switch authentications {
         case (status, status):
@@ -51,22 +52,22 @@ final class PermissionViewController: UIViewController {
             return false
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         infoLabel.textColor = Style.PermissionScreen.InfoLabel.textColor
-        allowButton.setTitleColor(Style.PermissionScreen.AllowButton.textColor, for: .normal)        
+        allowButton.setTitleColor(Style.PermissionScreen.AllowButton.textColor, for: .normal)
         allowButton.backgroundColor = Style.PermissionScreen.AllowButton.backgroundColor
         allowButton.layer.cornerRadius = 10
         allowButton.accessibilityIdentifier = "allow.permission.button"
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         Analytics.track(event: .openPermissionScreen)
         super.viewDidAppear(animated)
         openCameraIfNeeded()
     }
-    
+
     @IBAction func touchAllow(_ sender: Any) {
         Analytics.track(event: .tapAllowButtonPermission)
         if ApplicationMirror.isTakingSnapshot { openCamera(); return }
@@ -82,7 +83,7 @@ final class PermissionViewController: UIViewController {
             case .restricted: break
             }
         }
-        
+
         if bothAuthenticationStatus(either: .restricted) {
             // Show alertView
             let alert = UIAlertController(title: "Retricted", message: "Camera or Microphone access is restricted by device settings", preferredStyle: .alert)
@@ -90,7 +91,7 @@ final class PermissionViewController: UIViewController {
             alert.show(self, sender: nil)
             return
         }
-        
+
         if bothAuthenticationStatus(either: .denied) {
             guard
                 let settingsUrl = URL(string: UIApplicationOpenSettingsURLString),
@@ -98,27 +99,27 @@ final class PermissionViewController: UIViewController {
             UIApplication.shared.open(settingsUrl)
             return
         }
-        
+
         if bothAuthenticationStatus(were: .notDetermined) {
             // Request access for video
-            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted) in
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted) in
                 // Then request access for audio
                 if granted { Analytics.track(event: .allowCameraPermission) }
-                AVCaptureDevice.requestAccess(for: .audio, completionHandler: { (granted) in
+                AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: { (granted) in
                     if granted { Analytics.track(event: .allowMicPermission) }
                     self.openCameraIfNeeded()
                 })
             })
         }
-        
+
     }
-    
+
     func openCameraIfNeeded() {
         if ApplicationMirror.isTakingSnapshot { return }
         guard isAuthenticatedForDevices || !ApplicationMirror.isDevice else { return }
         DispatchQueue.main.async { self.openCamera() }
     }
-    
+
     func openCamera() {
         performSegue(withIdentifier: "openCamera", sender: nil)
     }

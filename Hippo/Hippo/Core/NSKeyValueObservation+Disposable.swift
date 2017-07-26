@@ -7,9 +7,9 @@
 //
 
 import Foundation
-
-extension NSKeyValueObservation {
-    func dispose(by disposedBag: inout [NSKeyValueObservation]) {
-        disposedBag.append(self)
-    }
-}
+//
+//extension NSKeyValueObservation {
+//    func dispose(by disposedBag: inout [NSKeyValueObservation]) {
+//        disposedBag.append(self)
+//    }
+//}
