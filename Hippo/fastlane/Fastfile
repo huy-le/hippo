@@ -7,23 +7,28 @@ Fastlane::PROJECT_FOLDER="Hippo"
 Fastlane::PROJECT_FILE="Hippo.xcodeproj"
 Fastlane::INFO_PLIST_PATH="Hippo/Info.plist"
 
-BUILD_SCHEME = "Hippo"
-BUNDLE_ID = "com.huyle.hippo.app"
+# Application constants
+module App
+  BUNDLE_SCHEME = "Hippo"
+  BUNDLE_ID = "com.huyle.hippo.app"
+  PROFILE_NAME = "Hippo Appstore"
+  DISPLAY_NAME = "Hippo Speaking"
+end
 
 ENV["GYM_INCLUDE_BITCODE"] ||= "true"
 ENV["GYM_OUTPUT_DIRECTORY"] ||= Fastlane::OUTPUT_PATH
 ENV["GYM_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData")
 ENV["SCAN_DERIVED_DATA_PATH"] ||= File.join(Fastlane::OUTPUT_PATH, "DerivedData-Test")
 
-IS_CI = ENV['CI']
-USERNAME = ENV["ITC_USERNAME"]
-BRANCH = ENV["TRAVIS_BRANCH"]
-TAG = ENV["TRAVIS_TAG"]
+IS_CI = ENV["CI"]
+ITC_USERNAME = ENV["ITC_USERNAME"]
+TRAVIS_BRANCH = ENV["TRAVIS_BRANCH"]
+TRAVIS_TAG = ENV["TRAVIS_TAG"]
 
 def file_name_base
   version_number  = get_version_number(xcodeproj: Fastlane::PROJECT_FILE)
   build_number    = get_build_number(xcodeproj: Fastlane::PROJECT_FILE)
-  "Hippo-#{lane_context[:build_type]}-#{version_number}-#{build_number}"
+  "#{App::BUNDLE_ID}-#{lane_context[:build_type]}-#{version_number}-#{build_number}"
 end
 
 default_platform :ios
@@ -39,12 +44,20 @@ platform :ios do
     xcversion(version: Fastlane::XCODE_VERSION)
   end
 
+  lane :default do
+    if ENV["TRAVIS_BRANCH"].start_with?("release/")
+      release_beta
+    else
+      test
+    end
+  end
   ##############################################################################
   #                                                                            #
-  #                                   Test                                     #
+  #                                   Main                                     #
   #                                                                            #
   ##############################################################################
 
+  # https://docs.fastlane.tools/actions/#scan
   desc "Run the unit tests"
   lane :test do |options|
     clear_derived_data(derived_data_path: ENV["SCAN_DERIVED_DATA_PATH"])
@@ -63,52 +76,138 @@ platform :ios do
     )
   end
 
-  lane :ver do
-    increment_version_number(
-      bump_type: "major"
-      # version_number: "1.0.0"
-    )
-    increment_build_number(
-      build_number: "1"
-    )
-  end
-
+  desc "Make an IPA then submit TestFlight beta"
   lane :release_beta do
+
+    if IS_CI
+      setup_keychain
+      # Put the provisioning profile in place
+      sh "mkdir -p ~/Library/MobileDevice/Provisioning\\ Profiles"
+      sh "cp Profiles/app_provisioning.mobileprovision ~/Library/MobileDevice/Provisioning\\ Profiles/"
+    end
+
     release
     beta
+
+    if IS_CI
+      sh "security delete-keychain ios-build.keychain"
+    end
   end
 
+  ##############################################################################
+  #                                                                            #
+  #                                   Utility                                  #
+  #                                                                            #
+  ##############################################################################
+
+  # https://docs.fastlane.tools/actions/#increment_version_number
+  desc "Bump the major version"
+  lane :ver do |options|
+    if options[:v]
+      increment_version_number(version_number: options[:v])
+    else
+      version = get_version_number
+      increment_version_number(version_number: version.next)
+    end
+    increment_build_number(build_number: "1")
+  end
+
+  desc "Encrypt files"
+  lane :encrypt do |options|
+    file_path = options[:path]
+    file_pass = options[:pass]
+    sh "openssl aes-256-cbc -k \"#{file_pass}\" -in #{file_path} -out #{file_path}.enc -a"
+  end
+
+  desc "Decrypt files"
+  lane :decrypt do |options|
+    file_path = options[:path]
+    file_pass = options[:pass]
+    sh "openssl aes-256-cbc -k \"#{file_pass}\" -in #{file_path}.enc -d -a -out #{file_path}"
+  end
+
+  desc "Setup keychain for CI"
+  lane :setup_keychain do
+    keychain_name = "ios-build.keychain"
+    keychain_password = SecureRandom.base64
+
+    create_keychain(
+        name: keychain_name,
+        password: keychain_password,
+        default_keychain: true,
+        unlock: true,
+        timeout: 3600,
+        add_to_search_list: true
+    )
+
+    import_certificate(
+        certificate_path: "fastlane/Certificates/app_distribution.p12",
+        certificate_password: ENV["KEY_PASSWORD"],
+        keychain_name: keychain_name,
+        keychain_password: keychain_password
+    )
+  end
+
+  # https://docs.fastlane.tools/actions/#snapshot
+  desc "Take screenshots"
+  lane :screenshots do
+    snapshot
+    update_metadata
+  end
+
+  # https://docs.fastlane.tools/actions/#deliver
+  lane :update_metadata do
+    deliver(
+      username: ITC_USERNAME,
+      app_identifier: App::BUNDLE_ID,
+      force: true,
+      overwrite_screenshots: true,
+      copyright: "#{Time.now.year} © Huy Le",
+      automatic_release: true
+    )
+  end
+
+  ##############################################################################
+  #                                                                            #
+  #                                   Deploy                                   #
+  #                                                                            #
+  ##############################################################################
+
+  desc "Submit to TestFlight beta"
   lane :beta do
     testflight(
       skip_submission: true,
-      username: USERNAME,
+      username: ITC_USERNAME,
+      skip_waiting_for_build_processing: true,
     )
     notification(subtitle: "Finished uploading", message: "Wait for processing...")
   end
 
-  desc "Make release configuration build"
+  desc "Make release IPA"
   lane :release do
-
-    increment_build_number(xcodeproj: Fastlane::PROJECT_FILE)
+    # verify_xcode
     lane_context[:build_type] = "Release"
 
-    # verify_xcode
+    build_number = latest_testflight_build_number(username: ENV["ITC_USERNAME"], app_identifier: App::BUNDLE_ID)
+    increment_build_number({
+      build_number: build_number + 1
+    })
 
     update_app_identifier(
       xcodeproj: Fastlane::PROJECT_FILE,
       plist_path: Fastlane::INFO_PLIST_PATH,
-      app_identifier: "com.huyle.hippo.app"
+      app_identifier: App::BUNDLE_ID
     )
 
     update_info_plist(
       xcodeproj: Fastlane::PROJECT_FILE,
       plist_path: Fastlane::INFO_PLIST_PATH,
-      display_name: "Hippo"
+      display_name: App::DISPLAY_NAME
     )
 
     gym(
       clean: true,
-      scheme: BUILD_SCHEME,
+      scheme: App::BUNDLE_SCHEME,
       include_bitcode: true,
       output_name: "#{file_name_base}.ipa",
       archive_path: File.join(Fastlane::OUTPUT_PATH, "#{file_name_base}.xcarchive"),
@@ -121,7 +220,7 @@ platform :ios do
       RELEASE_PROVISIONING_PROFILE=\"Hippo AppStore\"",
       export_options: {
         provisioningProfiles: {
-          "com.huyle.hippo.app": "Hippo AppStore"
+          App::BUNDLE_ID => "Hippo AppStore"
         }
       }
     )

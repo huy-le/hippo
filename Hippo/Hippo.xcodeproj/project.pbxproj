@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB2CDDCA1F29A92D00C77D0C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */; };
 		AB31705A1F1EC3650018DE9F /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3170591F1EC3650018DE9F /* Platform.swift */; };
 		AB75C2C31F202B8A0013CDDC /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C21F202B8A0013CDDC /* RecordButton.swift */; };
 		AB75C2C51F202BA70013CDDC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C41F202BA70013CDDC /* Style.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		AB3170591F1EC3650018DE9F /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		AB4013261F234FD80083B52F /* Release-Hippo-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Hippo-Config.xcconfig"; sourceTree = "<group>"; };
 		AB4013401F2355520083B52F /* Debug-Hippo-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Hippo-Config.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		AB9687761F1B7590001ECBCF /* HippoUITests */ = {
 			isa = PBXGroup;
 			children = (
+				AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */,
 				AB9687771F1B7590001ECBCF /* HippoUITests.swift */,
 				AB9687791F1B7590001ECBCF /* Info.plist */,
 			);
@@ -472,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB9687781F1B7590001ECBCF /* HippoUITests.swift in Sources */,
+				AB2CDDCA1F29A92D00C77D0C /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,7 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T6NK4QEU4Q;
 				INFOPLIST_FILE = Hippo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -642,7 +646,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "$(RELEASE_PROVISIONING_PROFILE)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
+				VERSIONING_SYSTEM = "";
 			};
 			name = Debug;
 		};
@@ -652,7 +656,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = Hippo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -662,7 +666,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "$(RELEASE_PROVISIONING_PROFILE)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
+				VERSIONING_SYSTEM = "";
 			};
 			name = Release;
 		};

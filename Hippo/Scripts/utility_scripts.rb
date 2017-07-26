@@ -12,7 +12,7 @@ task :asset do
   sh "cd #{SKETCH_ROOT} && curl -O -L #{FILE_URL}"
 
   XCASSETS_PATH     = "Hippo/Resources/Assets.xcassets"
-  SLIDE_SCRIPT_ROOT = "Scripts"
+  SLIDE_SCRIPT_ROOT = "scripts"
 
   sh "python '#{SLIDE_SCRIPT_ROOT}/importFromSketch.py' '#{SKETCH_ROOT}/#{FILE_NAME}' '#{XCASSETS_PATH}' 'MyAsset'"
 

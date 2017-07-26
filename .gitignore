@@ -69,3 +69,7 @@ Carthage/Build
 
 # Sketch
 Hippo/Sketch/*.sketch
+
+.env
+Hippo/fastlane/Certificates/app_distribution.p12
+Hippo/fastlane/Profiles/app_provisioning.mobileprovision

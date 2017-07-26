@@ -4,5 +4,8 @@ osx_image: xcode9
 before_install:
   - cd Hippo
   - bundle install
+before_script:
+  - bundle exec fastlane decrypt path:Profiles/app_provisioning.mobileprovision pass:$ENCRYPTION_SECRET
+  - bundle exec fastlane decrypt path:Certificates/app_distribution.p12 pass:$ENCRYPTION_SECRET
 script:
-  - bundle exec fastlane release_beta
+  - bundle exec fastlane default
