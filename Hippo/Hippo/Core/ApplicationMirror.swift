@@ -8,8 +8,13 @@
 
 import Foundation
 
-final class Platform {
+final class ApplicationMirror {
     static var isDevice: Bool {
         return TARGET_OS_SIMULATOR == 0
+    }
+    
+    static var isTakingSnapshot: Bool {
+        return true
+        return UserDefaults.standard.bool(forKey: "fastlane.snapshot")
     }
 }

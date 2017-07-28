@@ -32,6 +32,8 @@ final class VideoPlayerViewController: AVPlayerViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if ApplicationMirror.isTakingSnapshot { return }
         self.player = AVPlayer(url: self.videoURL)
     }
     

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB2CDDCA1F29A92D00C77D0C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */; };
-		AB31705A1F1EC3650018DE9F /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3170591F1EC3650018DE9F /* Platform.swift */; };
+		AB31705A1F1EC3650018DE9F /* ApplicationMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3170591F1EC3650018DE9F /* ApplicationMirror.swift */; };
 		AB75C2C31F202B8A0013CDDC /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C21F202B8A0013CDDC /* RecordButton.swift */; };
 		AB75C2C51F202BA70013CDDC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C41F202BA70013CDDC /* Style.swift */; };
 		AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C61F202BC80013CDDC /* MyAsset.swift */; };
@@ -19,12 +19,17 @@
 		AB96875F1F1B7590001ECBCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB96875E1F1B7590001ECBCF /* Assets.xcassets */; };
 		AB9687621F1B7590001ECBCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB9687601F1B7590001ECBCF /* LaunchScreen.storyboard */; };
 		AB96876D1F1B7590001ECBCF /* HippoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB96876C1F1B7590001ECBCF /* HippoTests.swift */; };
-		AB9687781F1B7590001ECBCF /* HippoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687771F1B7590001ECBCF /* HippoUITests.swift */; };
+		AB9687781F1B7590001ECBCF /* HippoSnapshotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9687771F1B7590001ECBCF /* HippoSnapshotUITests.swift */; };
 		AB9687871F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */; };
 		AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C85B81F1B825A004D8893 /* CameraViewController.swift */; };
 		AB9C85BC1F1C03E9004D8893 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9C85BB1F1C03E9004D8893 /* VideoPlayerViewController.swift */; };
 		ABB9B5F91F1CA3AB0021552A /* CameraEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB9B5F81F1CA39F0021552A /* CameraEngine.framework */; };
 		ABB9B5FA1F1CA3AB0021552A /* CameraEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = ABB9B5F81F1CA39F0021552A /* CameraEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		ABD644831F2B26E50044EBC1 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD644821F2B26E50044EBC1 /* Helper.swift */; };
+		ABD644881F2B2A4D0044EBC1 /* PermissionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD644871F2B2A4D0044EBC1 /* PermissionScreen.swift */; };
+		ABD6448A1F2B2A570044EBC1 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD644891F2B2A570044EBC1 /* CameraScreen.swift */; };
+		ABD6448C1F2B2A720044EBC1 /* VideoPlayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6448B1F2B2A720044EBC1 /* VideoPlayerScreen.swift */; };
+		ABD6448E1F2B2AE80044EBC1 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6448D1F2B2AE80044EBC1 /* Screen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
-		AB3170591F1EC3650018DE9F /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = HippoUITests/Utility/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		AB3170591F1EC3650018DE9F /* ApplicationMirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMirror.swift; sourceTree = "<group>"; };
 		AB4013261F234FD80083B52F /* Release-Hippo-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Hippo-Config.xcconfig"; sourceTree = "<group>"; };
 		AB4013401F2355520083B52F /* Debug-Hippo-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Hippo-Config.xcconfig"; sourceTree = "<group>"; };
 		AB5AFD611F1CA47C0023CB84 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
@@ -93,13 +98,18 @@
 		AB96876C1F1B7590001ECBCF /* HippoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippoTests.swift; sourceTree = "<group>"; };
 		AB96876E1F1B7590001ECBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB9687731F1B7590001ECBCF /* HippoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HippoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AB9687771F1B7590001ECBCF /* HippoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippoUITests.swift; sourceTree = "<group>"; };
+		AB9687771F1B7590001ECBCF /* HippoSnapshotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HippoSnapshotUITests.swift; sourceTree = "<group>"; };
 		AB9687791F1B7590001ECBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB9687861F1B7C9A001ECBCF /* Project-Debug-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug-Config.xcconfig"; sourceTree = "<group>"; };
 		AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Project-Config.xcconfig"; sourceTree = "<group>"; };
 		AB9C85B81F1B825A004D8893 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		AB9C85BB1F1C03E9004D8893 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CameraEngine.xcodeproj; path = Carthage/Checkouts/CameraEngine/CameraEngine.xcodeproj; sourceTree = SOURCE_ROOT; };
+		ABD644821F2B26E50044EBC1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		ABD644871F2B2A4D0044EBC1 /* PermissionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionScreen.swift; sourceTree = "<group>"; };
+		ABD644891F2B2A570044EBC1 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
+		ABD6448B1F2B2A720044EBC1 /* VideoPlayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerScreen.swift; sourceTree = "<group>"; };
+		ABD6448D1F2B2AE80044EBC1 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +141,7 @@
 		AB3170581F1EC3580018DE9F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				AB3170591F1EC3650018DE9F /* Platform.swift */,
+				AB3170591F1EC3650018DE9F /* ApplicationMirror.swift */,
 				AB75C2C41F202BA70013CDDC /* Style.swift */,
 				AB75C2C91F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift */,
 			);
@@ -204,8 +214,9 @@
 		AB9687761F1B7590001ECBCF /* HippoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */,
-				AB9687771F1B7590001ECBCF /* HippoUITests.swift */,
+				ABD644861F2B2A320044EBC1 /* Tests */,
+				ABD644851F2B2A2A0044EBC1 /* Screens */,
+				ABD644841F2B2A210044EBC1 /* Utility */,
 				AB9687791F1B7590001ECBCF /* Info.plist */,
 			);
 			path = HippoUITests;
@@ -295,6 +306,34 @@
 				ABB9B5F81F1CA39F0021552A /* CameraEngine.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		ABD644841F2B2A210044EBC1 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */,
+				ABD644821F2B26E50044EBC1 /* Helper.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		ABD644851F2B2A2A0044EBC1 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				ABD644871F2B2A4D0044EBC1 /* PermissionScreen.swift */,
+				ABD644891F2B2A570044EBC1 /* CameraScreen.swift */,
+				ABD6448B1F2B2A720044EBC1 /* VideoPlayerScreen.swift */,
+				ABD6448D1F2B2AE80044EBC1 /* Screen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		ABD644861F2B2A320044EBC1 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				AB9687771F1B7590001ECBCF /* HippoSnapshotUITests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,7 +494,7 @@
 				AB75C2C51F202BA70013CDDC /* Style.swift in Sources */,
 				AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */,
 				AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */,
-				AB31705A1F1EC3650018DE9F /* Platform.swift in Sources */,
+				AB31705A1F1EC3650018DE9F /* ApplicationMirror.swift in Sources */,
 				AB75C2CA1F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift in Sources */,
 				AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */,
 				AB75C2C31F202B8A0013CDDC /* RecordButton.swift in Sources */,
@@ -474,8 +513,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB9687781F1B7590001ECBCF /* HippoUITests.swift in Sources */,
+				ABD6448E1F2B2AE80044EBC1 /* Screen.swift in Sources */,
+				AB9687781F1B7590001ECBCF /* HippoSnapshotUITests.swift in Sources */,
 				AB2CDDCA1F29A92D00C77D0C /* SnapshotHelper.swift in Sources */,
+				ABD6448C1F2B2A720044EBC1 /* VideoPlayerScreen.swift in Sources */,
+				ABD644881F2B2A4D0044EBC1 /* PermissionScreen.swift in Sources */,
+				ABD6448A1F2B2A570044EBC1 /* CameraScreen.swift in Sources */,
+				ABD644831F2B26E50044EBC1 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

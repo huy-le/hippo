@@ -57,6 +57,7 @@ final class PermissionViewController: UIViewController {
         allowButton.setTitleColor(Style.PermissionScreen.AllowButton.textColor, for: .normal)        
         allowButton.backgroundColor = Style.PermissionScreen.AllowButton.backgroundColor
         allowButton.layer.cornerRadius = 10
+        allowButton.accessibilityIdentifier = "allow.permission.button"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,6 +66,7 @@ final class PermissionViewController: UIViewController {
     }
     
     @IBAction func touchAllow(_ sender: Any) {
+        if ApplicationMirror.isTakingSnapshot { openCamera(); return }
         if bothAuthenticationStatus(either: .restricted) {
             // Show alertView
             let alert = UIAlertController(title: "Retricted", message: "Camera or Microphone access is restricted by device settings", preferredStyle: .alert)
@@ -94,9 +96,12 @@ final class PermissionViewController: UIViewController {
     }
     
     func openCameraIfNeeded() {
-        guard isAuthenticatedForDevices || !Platform.isDevice else { return }
-        performSegue(withIdentifier: "openCamera", sender: nil)
+        if ApplicationMirror.isTakingSnapshot { return }
+        guard isAuthenticatedForDevices || !ApplicationMirror.isDevice else { return }
+        openCamera()
     }
     
-    
+    func openCamera() {
+        performSegue(withIdentifier: "openCamera", sender: nil)
+    }
 }

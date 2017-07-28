@@ -22,13 +22,15 @@ final class CameraViewController: UIViewController {
     @IBOutlet private weak var durationBackgroundView: UIView!
     @IBOutlet private weak var durationBackgroundImageView: UIImageView!
     @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet weak var recordButton: RecordButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recordButton.accessibilityIdentifier = "record.button"
         durationBackgroundImageView.image = Style.MyAsset.duration_background.image
         durationBackgroundView.backgroundColor = .clear
         durationBackgroundView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        guard Platform.isDevice else { return }
+        guard ApplicationMirror.isDevice else { return }
         self.cameraEngine.startSession()
         self.cameraEngine.cameraFocus = .continuousAutoFocus
         self.cameraEngine.rotationCamera = true
@@ -40,7 +42,7 @@ final class CameraViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        guard Platform.isDevice else { return }
+        guard ApplicationMirror.isDevice else { return }
         guard let layer = self.cameraEngine.previewLayer else { return }
         layer.frame = self.view.bounds
         self.view.layer.insertSublayer(layer, at: 0)
@@ -50,10 +52,15 @@ final class CameraViewController: UIViewController {
     @IBAction func touchButton(_ sender: RecordButton) {
         sender.isSelected = !sender.isSelected
         capture()
+        if ApplicationMirror.isTakingSnapshot {
+            if sender.isSelected { showDuration() }
+            else { openReviewScreen() }
+        }
     }
     
     func capture() {
-        guard Platform.isDevice else { return }
+        
+        guard ApplicationMirror.isDevice else { return }
         guard !cameraEngine.isRecording else {
             done()
             return
@@ -69,7 +76,7 @@ final class CameraViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.reviewViewController.videoURL = url
-                self.present(self.reviewViewController, animated: true, completion: nil)
+                self.openReviewScreen()
             }
         }
         cameraEngine.blockCompletionProgress = { duration in
@@ -82,12 +89,15 @@ final class CameraViewController: UIViewController {
         print("Start recording")
         showDuration()
     }
-    
-   
+  
     func done() {
         print("Stop recording")
         cameraEngine.stopRecordingVideo()
         hideDuration()
+    }
+    
+    private func openReviewScreen() {
+        present(reviewViewController, animated: true, completion: nil)
     }
     
     private func showDuration() {
