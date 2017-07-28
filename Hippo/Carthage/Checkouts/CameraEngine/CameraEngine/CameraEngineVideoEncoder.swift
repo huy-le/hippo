@@ -79,13 +79,7 @@ public enum CameraEngineVideoEncoderEncoderSettings: String {
 
 extension UIDevice {
     static func orientationTransformation() -> CGFloat {
-        switch UIDevice.current.orientation {
-        case .portrait: return CGFloat(M_PI / 2)
-        case .portraitUpsideDown: return CGFloat(M_PI / 4)
-        case .landscapeRight: return CGFloat(M_PI)
-        case .landscapeLeft: return CGFloat(M_PI * 2)
-        default: return 0
-        }
+        return .pi/2
     }
 }
 
