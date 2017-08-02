@@ -98,7 +98,7 @@ final class PermissionViewController: UIViewController {
     func openCameraIfNeeded() {
         if ApplicationMirror.isTakingSnapshot { return }
         guard isAuthenticatedForDevices || !ApplicationMirror.isDevice else { return }
-        openCamera()
+        DispatchQueue.main.async { self.openCamera() }
     }
     
     func openCamera() {

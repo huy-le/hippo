@@ -14,7 +14,6 @@ final class ApplicationMirror {
     }
     
     static var isTakingSnapshot: Bool {
-        return true
-        return UserDefaults.standard.bool(forKey: "fastlane.snapshot")
+        return UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT")
     }
 }
