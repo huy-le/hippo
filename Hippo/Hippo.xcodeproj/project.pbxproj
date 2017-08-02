@@ -685,7 +685,7 @@
 				INFOPLIST_FILE = Hippo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huyle.hippo.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hule.hippo.app.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "$(RELEASE_PROVISIONING_PROFILE)";
 				SWIFT_VERSION = 4.0;
@@ -704,7 +704,7 @@
 				INFOPLIST_FILE = Hippo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.huyle.hippo.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hule.hippo.app.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "$(RELEASE_PROVISIONING_PROFILE)";
