@@ -36,8 +36,9 @@ final class CameraViewController: UIViewController {
         self.cameraEngine.rotationCamera = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addScreenshotBackgroundIfNeeded()
     }
     
     override func viewDidLayoutSubviews() {
@@ -47,6 +48,10 @@ final class CameraViewController: UIViewController {
         layer.frame = self.view.bounds
         self.view.layer.insertSublayer(layer, at: 0)
         self.view.layer.masksToBounds = true
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     @IBAction func touchButton(_ sender: RecordButton) {
@@ -110,6 +115,14 @@ final class CameraViewController: UIViewController {
         UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.7) {
             self.durationBackgroundView.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
         }.startAnimation()
+    }
+    
+    private func addScreenshotBackgroundIfNeeded() {
+        guard ApplicationMirror.isTakingSnapshot else { return }
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "ScreenshotBackground"))
+        imageView.frame = view.bounds
+        imageView.contentMode = .scaleAspectFill
+        view.insertSubview(imageView, at: 0)
     }
     
     private func lazy_durationTimeFormatter() -> DateComponentsFormatter {

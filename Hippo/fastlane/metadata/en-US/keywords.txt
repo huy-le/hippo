@@ -1,1 +1,1 @@
-speaking
+pronoun,ielts,toelf,pte,spanish,french,janpanese,Mandarin,German,Deutsch,Portuguese,Cantonese
