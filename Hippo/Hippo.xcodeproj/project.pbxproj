@@ -30,6 +30,8 @@
 		ABD6448A1F2B2A570044EBC1 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD644891F2B2A570044EBC1 /* CameraScreen.swift */; };
 		ABD6448C1F2B2A720044EBC1 /* VideoPlayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6448B1F2B2A720044EBC1 /* VideoPlayerScreen.swift */; };
 		ABD6448E1F2B2AE80044EBC1 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD6448D1F2B2AE80044EBC1 /* Screen.swift */; };
+		ABF9A79B1F4579F300478397 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9A79A1F4579F300478397 /* IntroductionViewController.swift */; };
+		ABF9A79D1F457DA300478397 /* IntroductionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF9A79C1F457DA300478397 /* IntroductionScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		ABD644891F2B2A570044EBC1 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
 		ABD6448B1F2B2A720044EBC1 /* VideoPlayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerScreen.swift; sourceTree = "<group>"; };
 		ABD6448D1F2B2AE80044EBC1 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		ABF9A79A1F4579F300478397 /* IntroductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		ABF9A79C1F457DA300478397 /* IntroductionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +280,7 @@
 		AB9687A81F1B7EE8001ECBCF /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				ABF9A7991F4579E100478397 /* Introduction */,
 				AB8854331F21BFDE0020CB60 /* Permission */,
 				AB9C85BA1F1C03C2004D8893 /* VideoPlayer */,
 				AB9C85B71F1B8249004D8893 /* Camera */,
@@ -320,6 +325,7 @@
 		ABD644851F2B2A2A0044EBC1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				ABF9A79C1F457DA300478397 /* IntroductionScreen.swift */,
 				ABD644871F2B2A4D0044EBC1 /* PermissionScreen.swift */,
 				ABD644891F2B2A570044EBC1 /* CameraScreen.swift */,
 				ABD6448B1F2B2A720044EBC1 /* VideoPlayerScreen.swift */,
@@ -334,6 +340,14 @@
 				AB9687771F1B7590001ECBCF /* HippoSnapshotUITests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		ABF9A7991F4579E100478397 /* Introduction */ = {
+			isa = PBXGroup;
+			children = (
+				ABF9A79A1F4579F300478397 /* IntroductionViewController.swift */,
+			);
+			path = Introduction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +509,7 @@
 				AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */,
 				AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */,
 				AB31705A1F1EC3650018DE9F /* ApplicationMirror.swift in Sources */,
+				ABF9A79B1F4579F300478397 /* IntroductionViewController.swift in Sources */,
 				AB75C2CA1F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift in Sources */,
 				AB9C85B91F1B825A004D8893 /* CameraViewController.swift in Sources */,
 				AB75C2C31F202B8A0013CDDC /* RecordButton.swift in Sources */,
@@ -518,6 +533,7 @@
 				AB2CDDCA1F29A92D00C77D0C /* SnapshotHelper.swift in Sources */,
 				ABD6448C1F2B2A720044EBC1 /* VideoPlayerScreen.swift in Sources */,
 				ABD644881F2B2A4D0044EBC1 /* PermissionScreen.swift in Sources */,
+				ABF9A79D1F457DA300478397 /* IntroductionScreen.swift in Sources */,
 				ABD6448A1F2B2A570044EBC1 /* CameraScreen.swift in Sources */,
 				ABD644831F2B26E50044EBC1 /* Helper.swift in Sources */,
 			);

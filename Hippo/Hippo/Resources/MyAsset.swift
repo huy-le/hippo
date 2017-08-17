@@ -5,7 +5,9 @@ extension Style {
 
     public enum MyAsset: String, UIImageConvertable {
         case duration_background = "duration_background"
+        case highfive = "highfive"
         case hippo_head = "hippo_head"
         case record_button_outer = "record_button_outer"
+        case welcome = "welcome"
     }
 }

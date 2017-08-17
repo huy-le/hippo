@@ -21,6 +21,8 @@ class HippoSnapshotUITests: UIBaseTests {
     }
     
     func testTakeSnapshot() {
+        snapshot("IntroductionScreen")
+        IntroductionScreen.nextButton.tap()
         snapshot("PermissionScreen")
         PermissionScreen.allowPermissionButton.tap()
         snapshot("CameraScreen")
