@@ -15,7 +15,7 @@ final class VideoPlayerViewController: AVPlayerViewController {
     var videoURL: URL!
     var bestTranscription: String?
     
-    private lazy var dictationTextView: UITextView = lazy_dictationTextView()
+    private lazy var dictationTextView: UITextView = self.lazy_dictationTextView()
     private let closeGesture = UISwipeGestureRecognizer()
     
     override func viewDidLoad() {

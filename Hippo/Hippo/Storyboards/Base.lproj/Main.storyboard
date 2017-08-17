@@ -5,8 +5,8 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
+        <development version="8000" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,6 +14,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CameraViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vEz-PR-RC2"/>
+                        <viewControllerLayoutGuide type="bottom" id="yGW-iU-adO"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,17 +83,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tj6-lZ-Wtb" secondAttribute="bottom" constant="47" id="LZo-Q4-mUp"/>
+                            <constraint firstItem="yGW-iU-adO" firstAttribute="top" secondItem="tj6-lZ-Wtb" secondAttribute="bottom" constant="47" id="LZo-Q4-mUp"/>
                             <constraint firstItem="iEb-iC-db2" firstAttribute="top" secondItem="RRI-qd-uDE" secondAttribute="bottom" constant="10" id="aFQ-s4-QZ7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iEb-iC-db2" secondAttribute="trailing" constant="30" id="hpK-OL-ZHP"/>
+                            <constraint firstAttribute="trailing" secondItem="iEb-iC-db2" secondAttribute="trailing" constant="30" id="hpK-OL-ZHP"/>
                             <constraint firstItem="Puj-zJ-Cch" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iAa-JY-qvs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Puj-zJ-Cch" secondAttribute="bottom" constant="28" id="jNf-Ex-LUt"/>
+                            <constraint firstItem="yGW-iU-adO" firstAttribute="top" secondItem="Puj-zJ-Cch" secondAttribute="bottom" constant="28" id="jNf-Ex-LUt"/>
                             <constraint firstItem="RRI-qd-uDE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="llu-cL-Xn5"/>
-                            <constraint firstItem="iEb-iC-db2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="pbS-QB-B6A"/>
-                            <constraint firstItem="tj6-lZ-Wtb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="w7b-PY-lRi"/>
-                            <constraint firstItem="RRI-qd-uDE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="xIt-eN-NFH"/>
+                            <constraint firstItem="iEb-iC-db2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="pbS-QB-B6A"/>
+                            <constraint firstItem="tj6-lZ-Wtb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="w7b-PY-lRi"/>
+                            <constraint firstItem="RRI-qd-uDE" firstAttribute="top" secondItem="vEz-PR-RC2" secondAttribute="bottom" constant="10" id="xIt-eN-NFH"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="dictationTextView" destination="iEb-iC-db2" id="YmA-Jp-QVK"/>
@@ -108,6 +111,10 @@
         <scene sceneID="XX9-7h-sBU">
             <objects>
                 <viewController id="pFg-VO-UJF" customClass="IntroductionViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="M6z-jc-zuj"/>
+                        <viewControllerLayoutGuide type="bottom" id="8nj-4r-m49"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="EzP-dV-1CK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,18 +171,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fRo-4G-FBf" firstAttribute="top" secondItem="gXD-tn-BtH" secondAttribute="bottom" constant="44" id="7uV-CP-QKG"/>
-                            <constraint firstItem="cjb-sQ-7O8" firstAttribute="top" secondItem="fGN-89-iku" secondAttribute="top" constant="13" id="GtU-Sa-5yR"/>
-                            <constraint firstItem="fGN-89-iku" firstAttribute="trailing" secondItem="fRo-4G-FBf" secondAttribute="trailing" constant="65" id="HrS-CF-qSY"/>
-                            <constraint firstItem="fGN-89-iku" firstAttribute="trailing" secondItem="cjb-sQ-7O8" secondAttribute="trailing" constant="30" id="K7L-lo-0tm"/>
-                            <constraint firstItem="cjb-sQ-7O8" firstAttribute="leading" secondItem="fGN-89-iku" secondAttribute="leading" constant="30" id="LEA-Bw-CQQ"/>
+                            <constraint firstItem="cjb-sQ-7O8" firstAttribute="top" secondItem="M6z-jc-zuj" secondAttribute="bottom" constant="13" id="GtU-Sa-5yR"/>
+                            <constraint firstAttribute="trailing" secondItem="fRo-4G-FBf" secondAttribute="trailing" constant="65" id="HrS-CF-qSY"/>
+                            <constraint firstAttribute="trailing" secondItem="cjb-sQ-7O8" secondAttribute="trailing" constant="30" id="K7L-lo-0tm"/>
+                            <constraint firstItem="cjb-sQ-7O8" firstAttribute="leading" secondItem="EzP-dV-1CK" secondAttribute="leading" constant="30" id="LEA-Bw-CQQ"/>
                             <constraint firstItem="gXD-tn-BtH" firstAttribute="top" secondItem="cjb-sQ-7O8" secondAttribute="bottom" constant="20" id="S6i-3h-AIb"/>
-                            <constraint firstItem="fGN-89-iku" firstAttribute="bottom" secondItem="2gC-jp-NJC" secondAttribute="bottom" constant="80" id="ajv-ua-Nzw"/>
+                            <constraint firstItem="8nj-4r-m49" firstAttribute="top" secondItem="2gC-jp-NJC" secondAttribute="bottom" constant="80" id="ajv-ua-Nzw"/>
                             <constraint firstItem="gXD-tn-BtH" firstAttribute="centerX" secondItem="EzP-dV-1CK" secondAttribute="centerX" id="bRX-Re-dP6"/>
-                            <constraint firstItem="fRo-4G-FBf" firstAttribute="leading" secondItem="fGN-89-iku" secondAttribute="leading" constant="65" id="e2o-xr-GTT"/>
+                            <constraint firstItem="fRo-4G-FBf" firstAttribute="leading" secondItem="EzP-dV-1CK" secondAttribute="leading" constant="65" id="e2o-xr-GTT"/>
                             <constraint firstItem="2gC-jp-NJC" firstAttribute="centerX" secondItem="EzP-dV-1CK" secondAttribute="centerX" id="lJz-Dn-1GY"/>
                             <constraint firstItem="2gC-jp-NJC" firstAttribute="top" secondItem="fRo-4G-FBf" secondAttribute="bottom" constant="28" id="pHO-8Y-lh4"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fGN-89-iku"/>
                     </view>
                     <connections>
                         <outlet property="headerLabel" destination="cjb-sQ-7O8" id="aH7-ki-EhA"/>
@@ -194,6 +200,10 @@
         <scene sceneID="eSo-jq-aUj">
             <objects>
                 <viewController id="mIt-VT-6nQ" customClass="PermissionViewController" customModule="Hippo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3EF-X2-WtX"/>
+                        <viewControllerLayoutGuide type="bottom" id="ho4-Ed-SmH"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3hZ-BR-C1H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,17 +235,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hjy-7u-s6I" firstAttribute="top" secondItem="4W2-en-pf9" secondAttribute="top" constant="76" id="1cL-oE-7fb"/>
+                            <constraint firstItem="hjy-7u-s6I" firstAttribute="top" secondItem="3EF-X2-WtX" secondAttribute="bottom" constant="76" id="1cL-oE-7fb"/>
                             <constraint firstItem="lkr-82-LLA" firstAttribute="centerX" secondItem="3hZ-BR-C1H" secondAttribute="centerX" id="4rC-nG-kzF"/>
-                            <constraint firstItem="4W2-en-pf9" firstAttribute="bottom" secondItem="lkr-82-LLA" secondAttribute="bottom" constant="79" id="E3A-2j-zo8"/>
+                            <constraint firstItem="ho4-Ed-SmH" firstAttribute="top" secondItem="lkr-82-LLA" secondAttribute="bottom" constant="79" id="E3A-2j-zo8"/>
                             <constraint firstItem="gt5-U5-xEr" firstAttribute="centerX" secondItem="3hZ-BR-C1H" secondAttribute="centerX" id="dDG-Ir-w5F"/>
                             <constraint firstItem="gt5-U5-xEr" firstAttribute="top" secondItem="hjy-7u-s6I" secondAttribute="bottom" constant="34" id="fBe-Gz-h7E"/>
-                            <constraint firstItem="4W2-en-pf9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gt5-U5-xEr" secondAttribute="trailing" constant="56" id="kHc-mW-tef"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gt5-U5-xEr" secondAttribute="trailing" constant="56" id="kHc-mW-tef"/>
                             <constraint firstItem="hjy-7u-s6I" firstAttribute="centerX" secondItem="3hZ-BR-C1H" secondAttribute="centerX" id="lSR-C6-sKb"/>
                             <constraint firstItem="lkr-82-LLA" firstAttribute="top" secondItem="gt5-U5-xEr" secondAttribute="bottom" constant="68" id="sgs-3r-pMA"/>
-                            <constraint firstItem="gt5-U5-xEr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4W2-en-pf9" secondAttribute="leading" constant="56" id="xWv-Mt-feN"/>
+                            <constraint firstItem="gt5-U5-xEr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3hZ-BR-C1H" secondAttribute="leading" constant="56" id="xWv-Mt-feN"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="4W2-en-pf9"/>
                     </view>
                     <connections>
                         <outlet property="allowButton" destination="lkr-82-LLA" id="p6m-NB-w57"/>
