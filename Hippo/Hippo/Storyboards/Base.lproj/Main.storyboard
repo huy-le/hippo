@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13168.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mIt-VT-6nQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mIt-VT-6nQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,17 +55,35 @@
                                     <constraint firstAttribute="bottom" secondItem="9CS-UU-132" secondAttribute="bottom" id="liz-Iy-Ced"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.84999999999999998" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" text="Use dictation to improve your pronunciation" translatesAutoresizingMaskIntoConstraints="NO" id="iEb-iC-db2">
+                                <rect key="frame" x="30" y="79" width="315" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="etX-Zu-qSf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iEb-iC-db2" firstAttribute="top" secondItem="RRI-qd-uDE" secondAttribute="bottom" constant="10" id="aFQ-s4-QZ7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iEb-iC-db2" secondAttribute="trailing" constant="30" id="hpK-OL-ZHP"/>
                             <constraint firstItem="Puj-zJ-Cch" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iAa-JY-qvs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Puj-zJ-Cch" secondAttribute="bottom" constant="28" id="jNf-Ex-LUt"/>
                             <constraint firstItem="RRI-qd-uDE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="llu-cL-Xn5"/>
+                            <constraint firstItem="iEb-iC-db2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="pbS-QB-B6A"/>
                             <constraint firstItem="RRI-qd-uDE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="xIt-eN-NFH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="dictationTextView" destination="iEb-iC-db2" id="YmA-Jp-QVK"/>
                         <outlet property="durationBackgroundImageView" destination="9CS-UU-132" id="dYB-z9-T5b"/>
                         <outlet property="durationBackgroundView" destination="RRI-qd-uDE" id="QQF-OX-bu0"/>
                         <outlet property="durationLabel" destination="Cev-G3-aas" id="znx-0Y-AfJ"/>

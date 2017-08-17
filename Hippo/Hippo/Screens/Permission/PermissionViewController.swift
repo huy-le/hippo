@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import Speech
 
 final class PermissionViewController: UIViewController {
     
@@ -67,6 +68,15 @@ final class PermissionViewController: UIViewController {
     
     @IBAction func touchAllow(_ sender: Any) {
         if ApplicationMirror.isTakingSnapshot { openCamera(); return }
+        SFSpeechRecognizer.requestAuthorization { (status) in
+            switch status {
+            case .authorized: break
+            case .denied: break
+            case .notDetermined: break
+            case .restricted: break
+            }
+        }
+        
         if bothAuthenticationStatus(either: .restricted) {
             // Show alertView
             let alert = UIAlertController(title: "Retricted", message: "Camera or Microphone access is restricted by device settings", preferredStyle: .alert)

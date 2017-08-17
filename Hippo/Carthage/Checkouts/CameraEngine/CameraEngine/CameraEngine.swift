@@ -179,6 +179,12 @@ public class CameraEngine: NSObject {
         }
     }
     
+    public var blockCompletionAudioBuffer: blockCompletionOutputBuffer? {
+        didSet {
+            self.cameraOutput.blockCompletionAudioBuffer = self.blockCompletionAudioBuffer
+        }
+    }
+    
     public var blockCompletionProgress: blockCompletionProgressRecording? {
         didSet {
             self.cameraOutput.blockCompletionProgress = self.blockCompletionProgress

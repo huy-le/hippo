@@ -10,19 +10,33 @@ import UIKit
 import CameraEngine
 import AVKit
 import CoreGraphics
+import Speech
 
 final class CameraViewController: UIViewController {
+    
+    var recognitionRequest: SFSpeechAudioBufferRecognitionRequest = {
+        let request = SFSpeechAudioBufferRecognitionRequest()
+        request.shouldReportPartialResults = true
+        return request
+    }()
     
     private let cameraEngine = CameraEngine()
     private var videoURL: URL? = CameraEngineFileManager.temporaryPath("video.mp4")
     private var isUsingFrontCamera: Bool = false
     lazy private var durationTimeFormatter: DateComponentsFormatter = self.lazy_durationTimeFormatter()
     lazy private var reviewViewController: VideoPlayerViewController = VideoPlayerViewController()
+    private var bestTranscription: String? {
+        didSet {
+            dictationTextView.text = bestTranscription
+            dictationTextView.scrollRectToVisible(CGRect(x: 0, y: dictationTextView.contentSize.height - 6, width:1, height: 1), animated: true)
+        }
+    }
     
     @IBOutlet private weak var durationBackgroundView: UIView!
     @IBOutlet private weak var durationBackgroundImageView: UIImageView!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet weak var recordButton: RecordButton!
+    @IBOutlet private weak var dictationTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +48,13 @@ final class CameraViewController: UIViewController {
         self.cameraEngine.startSession()
         self.cameraEngine.cameraFocus = .continuousAutoFocus
         self.cameraEngine.rotationCamera = true
+        
+        self.cameraEngine.blockCompletionAudioBuffer = { buffer in
+            self.recognizeSpeech(sampleBuffer: buffer)
+        }
+        dictationTextView.textColor = Style.DictationView.textColor
+        dictationTextView.contentInset = Style.DictationView.insets
+        dictationTextView.alpha = Style.DictationView.alpha
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +101,6 @@ final class CameraViewController: UIViewController {
                 assertionFailure(error.description)
             }
             DispatchQueue.main.async {
-                self.reviewViewController.videoURL = url
                 self.openReviewScreen()
             }
         }
@@ -92,16 +112,20 @@ final class CameraViewController: UIViewController {
             }
         }
         print("Start recording")
+        self.foo()
         showDuration()
     }
   
     func done() {
         print("Stop recording")
+        recognitionRequest.endAudio()
         cameraEngine.stopRecordingVideo()
         hideDuration()
     }
     
     private func openReviewScreen() {
+        reviewViewController.videoURL = videoURL
+        reviewViewController.bestTranscription = bestTranscription
         present(reviewViewController, animated: true, completion: nil)
     }
     
@@ -131,5 +155,30 @@ final class CameraViewController: UIViewController {
         formatter.unitsStyle = .positional
         formatter.zeroFormattingBehavior = .pad
         return formatter
+    }
+    
+    // MARK: - Dictation
+    
+    func foo() {
+        let locale = Locale.current
+        guard let recognizer = SFSpeechRecognizer(locale: locale) else {
+            // A recognizer is not supported for the current locale
+            return
+        }
+        if !recognizer.isAvailable {
+            // The recognizer is not available right now
+            return
+        }
+        recognizer.recognitionTask(with: recognitionRequest) { (result, error) in
+            guard let result = result else {
+                print("🆘 \(error.debugDescription)")
+                return
+            }
+            self.bestTranscription = result.bestTranscription.formattedString
+        }
+    }
+    
+    func recognizeSpeech(sampleBuffer: CMSampleBuffer) {
+        recognitionRequest.appendAudioSampleBuffer(sampleBuffer)
     }
 }

@@ -40,6 +40,7 @@ class CameraEngineCaptureOutput: NSObject {
     
     var isRecording = false
     var blockCompletionBuffer: blockCompletionOutputBuffer?
+    var blockCompletionAudioBuffer: blockCompletionOutputBuffer?
     var blockCompletionProgress: blockCompletionProgressRecording?
     
     func capturePhotoBuffer(settings: AVCapturePhotoSettings, _ blockCompletion: @escaping blockCompletionCapturePhotoBuffer) {
@@ -136,6 +137,7 @@ extension CameraEngineCaptureOutput: AVCaptureVideoDataOutputSampleBufferDelegat
         }
         else if captureOutput == self.captureAudioOutput {
             self.videoEncoder.appendBuffer(sampleBuffer, isVideo: false)
+            blockCompletionAudioBuffer?(sampleBuffer)
         }
     }
 }

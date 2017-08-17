@@ -24,6 +24,16 @@ struct Style {
             static let textColor = UIColor(red: 0.04, green: 0.12, blue: 0.26, alpha: 1.00)
         }
     }
+    
+    struct DictationView {
+        static let textColor = Text.contentColor
+        static let insets = UIEdgeInsetsMake(5, 5, -5, -5)
+        static let alpha = 0.85 as CGFloat
+    }
+    
+    struct Text {
+        static let contentColor = UIColor(red: 0.04, green: 0.12, blue: 0.26, alpha: 1.00)
+    }
 }
 
 protocol UIImageConvertable: RawRepresentable {
