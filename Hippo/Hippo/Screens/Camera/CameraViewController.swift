@@ -12,23 +12,55 @@ import AVKit
 import CoreGraphics
 import Speech
 
+extension UserDefaults {
+    var selectedLocale: String? {
+        set {
+            set(newValue, forKey: "com.hippo.selectedLocale")
+        }
+        get {
+            return value(forKey: "com.hippo.selectedLocale") as? String
+        }
+    }
+}
+
 final class CameraViewController: UIViewController {
     
-    var recognitionRequest: SFSpeechAudioBufferRecognitionRequest = {
-        let request = SFSpeechAudioBufferRecognitionRequest()
-        request.shouldReportPartialResults = true
-        return request
-    }()
+    let supportedLanguages = ["🇻🇳 Vietnamese":"vi",
+                              "🇦🇺 English":"en_AU",
+                              "🇺🇸 English":"en_US",
+                              "🇬🇧 English":"en_GB",
+                              "🇪🇸 Spanish":"es",
+                              "🇵🇹 Portuguese":"pt",
+                              "🇫🇷 French":"fr_FR",
+                              "🇷🇺 Russian":"ru",
+                              "🇯🇵 Japannese":"ja",
+                              "🇰🇷 Korean":"ko",
+                              "🇨🇳 Mandarin":"zh_HK",
+                              "🇹🇼 Cantonese":"zh-Hans_HK"]
     
     private let cameraEngine = CameraEngine()
     private var videoURL: URL? = CameraEngineFileManager.temporaryPath("video.mp4")
     private var isUsingFrontCamera: Bool = false
     lazy private var durationTimeFormatter: DateComponentsFormatter = self.lazy_durationTimeFormatter()
-    lazy private var reviewViewController: VideoPlayerViewController = VideoPlayerViewController()
+    lazy private var reviewViewController: VideoPlayerViewController =
+        VideoPlayerViewController()
+    
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest = {
+        let request = SFSpeechAudioBufferRecognitionRequest()
+        request.shouldReportPartialResults = true
+        return request
+    }()
+    
     private var bestTranscription: String? {
         didSet {
             dictationTextView.text = bestTranscription
             dictationTextView.scrollRectToVisible(CGRect(x: 0, y: dictationTextView.contentSize.height - 6, width:1, height: 1), animated: true)
+        }
+    }
+    private var selectedLocale = Locale.current {
+        didSet {
+            guard let flag = UserDefaults.standard.selectedLocale else { return }
+            localeButton.setTitle(flag, for: .normal)
         }
     }
     
@@ -36,6 +68,7 @@ final class CameraViewController: UIViewController {
     @IBOutlet private weak var durationBackgroundImageView: UIImageView!
     @IBOutlet private weak var durationLabel: UILabel!
     @IBOutlet weak var recordButton: RecordButton!
+    @IBOutlet weak var localeButton: UIButton!
     @IBOutlet private weak var dictationTextView: UITextView!
     
     override func viewDidLoad() {
@@ -55,6 +88,15 @@ final class CameraViewController: UIViewController {
         dictationTextView.textColor = Style.DictationView.textColor
         dictationTextView.contentInset = Style.DictationView.insets
         dictationTextView.alpha = Style.DictationView.alpha
+        
+        if
+            let key = UserDefaults.standard.selectedLocale,
+            let identifier = supportedLanguages[key] {
+                selectedLocale = Locale(identifier: identifier)
+        }
+        
+        localeButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+        localeButton.setTitleColor(.white, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +124,22 @@ final class CameraViewController: UIViewController {
             if sender.isSelected { showDuration() }
             else { openReviewScreen() }
         }
+    }
+    
+    @IBAction func tapOnLocaleButton(_ sender: Any) {
+        let vc = UIAlertController(title: "Dictation language", message: "Choose language you want to practice speaking", preferredStyle: .actionSheet)
+        vc.popoverPresentationController?.sourceRect = localeButton.frame
+        vc.popoverPresentationController?.sourceView = localeButton
+        
+        for lang in supportedLanguages {
+            vc.addAction(UIAlertAction(title: lang.key, style: .default, handler: { (_) in
+                UserDefaults.standard.selectedLocale = lang.key
+                UserDefaults.standard.synchronize()
+                self.selectedLocale = Locale(identifier: lang.value)
+            }))
+        }
+        vc.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(vc, animated: true, completion: nil)
     }
     
     func capture() {
@@ -160,7 +218,7 @@ final class CameraViewController: UIViewController {
     // MARK: - Dictation
     
     func foo() {
-        let locale = Locale.current
+        let locale = selectedLocale
         guard let recognizer = SFSpeechRecognizer(locale: locale) else {
             // A recognizer is not supported for the current locale
             return

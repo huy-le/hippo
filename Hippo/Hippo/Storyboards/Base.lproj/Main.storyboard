@@ -69,15 +69,24 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tj6-lZ-Wtb">
+                                <rect key="frame" x="30" y="590" width="87" height="30"/>
+                                <state key="normal" title="🇦🇺 Dictation"/>
+                                <connections>
+                                    <action selector="tapOnLocaleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bxJ-A2-uSp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tj6-lZ-Wtb" secondAttribute="bottom" constant="47" id="LZo-Q4-mUp"/>
                             <constraint firstItem="iEb-iC-db2" firstAttribute="top" secondItem="RRI-qd-uDE" secondAttribute="bottom" constant="10" id="aFQ-s4-QZ7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iEb-iC-db2" secondAttribute="trailing" constant="30" id="hpK-OL-ZHP"/>
                             <constraint firstItem="Puj-zJ-Cch" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iAa-JY-qvs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Puj-zJ-Cch" secondAttribute="bottom" constant="28" id="jNf-Ex-LUt"/>
                             <constraint firstItem="RRI-qd-uDE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="llu-cL-Xn5"/>
                             <constraint firstItem="iEb-iC-db2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="pbS-QB-B6A"/>
+                            <constraint firstItem="tj6-lZ-Wtb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="w7b-PY-lRi"/>
                             <constraint firstItem="RRI-qd-uDE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="xIt-eN-NFH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -87,6 +96,7 @@
                         <outlet property="durationBackgroundImageView" destination="9CS-UU-132" id="dYB-z9-T5b"/>
                         <outlet property="durationBackgroundView" destination="RRI-qd-uDE" id="QQF-OX-bu0"/>
                         <outlet property="durationLabel" destination="Cev-G3-aas" id="znx-0Y-AfJ"/>
+                        <outlet property="localeButton" destination="tj6-lZ-Wtb" id="NbK-vy-ojE"/>
                         <outlet property="recordButton" destination="Puj-zJ-Cch" id="v1y-OB-kuf"/>
                     </connections>
                 </viewController>

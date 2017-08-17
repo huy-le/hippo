@@ -22,7 +22,6 @@ final class VideoPlayerViewController: AVPlayerViewController {
         closeGesture.direction = .down
         closeGesture.addTarget(self, action: #selector(close))
         view.addGestureRecognizer(closeGesture)
-        dictationTextView.text = bestTranscription
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -37,7 +36,8 @@ final class VideoPlayerViewController: AVPlayerViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if ApplicationMirror.isTakingSnapshot { return }
-        self.player = AVPlayer(url: self.videoURL)
+        player = AVPlayer(url: videoURL)
+        dictationTextView.text = bestTranscription
     }
     
     override func viewDidAppear(_ animated: Bool) {
