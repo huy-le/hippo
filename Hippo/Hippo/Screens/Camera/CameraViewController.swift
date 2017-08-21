@@ -30,11 +30,13 @@ final class CameraViewController: UIViewController {
                               "🇺🇸 English":"en_US",
                               "🇬🇧 English":"en_GB",
                               "🇪🇸 Spanish":"es",
-                              "🇵🇹 Portuguese":"pt",
+                              "🇵🇹 Portuguese":"pt_PT",
                               "🇫🇷 French":"fr_FR",
                               "🇷🇺 Russian":"ru",
                               "🇯🇵 Japannese":"ja",
                               "🇰🇷 Korean":"ko",
+                              "🇩🇪 German":"de_DE",
+                              "🇳🇴 Norwegian":"no_NO",
                               "🇨🇳 Mandarin":"zh_HK",
                               "🇹🇼 Cantonese":"zh-Hans_HK"]
     
