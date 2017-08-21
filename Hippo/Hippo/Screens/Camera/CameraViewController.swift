@@ -120,6 +120,7 @@ final class CameraViewController: UIViewController {
     }
     
     @IBAction func touchButton(_ sender: RecordButton) {
+        UISelectionFeedbackGenerator().selectionChanged()
         sender.isSelected = !sender.isSelected
         capture()
         if ApplicationMirror.isTakingSnapshot {
