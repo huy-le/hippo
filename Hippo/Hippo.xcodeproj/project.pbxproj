@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		AB2CDDCA1F29A92D00C77D0C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */; };
 		AB31705A1F1EC3650018DE9F /* ApplicationMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3170591F1EC3650018DE9F /* ApplicationMirror.swift */; };
+		AB3ACF111F4BF7E7002077C7 /* Amplitude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9CCC991F4BF7C600C0ECA6 /* Amplitude.framework */; };
+		AB3ACF121F4BF7E7002077C7 /* Amplitude.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB9CCC991F4BF7C600C0ECA6 /* Amplitude.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB3ACF161F4BF818002077C7 /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3ACF151F4BF818002077C7 /* Analytics.swift */; };
 		AB75C2C31F202B8A0013CDDC /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C21F202B8A0013CDDC /* RecordButton.swift */; };
 		AB75C2C51F202BA70013CDDC /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C41F202BA70013CDDC /* Style.swift */; };
 		AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB75C2C61F202BC80013CDDC /* MyAsset.swift */; };
@@ -35,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		AB3ACF131F4BF7E7002077C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB9CCC8D1F4BF7C600C0ECA6 /* Amplitude.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 343AB4161CC99F4F00962943;
+			remoteInfo = AmplitudeFramework;
+		};
 		AB9687691F1B7590001ECBCF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AB96874C1F1B7590001ECBCF /* Project object */;
@@ -48,6 +58,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = AB9687531F1B7590001ECBCF;
 			remoteInfo = Hippo;
+		};
+		AB9CCC941F4BF7C600C0ECA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB9CCC8D1F4BF7C600C0ECA6 /* Amplitude.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E98C05231A48E7FE00800C63;
+			remoteInfo = Amplitude;
+		};
+		AB9CCC961F4BF7C600C0ECA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB9CCC8D1F4BF7C600C0ECA6 /* Amplitude.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E98C052E1A48E7FE00800C63;
+			remoteInfo = AmplitudeTests;
+		};
+		AB9CCC981F4BF7C600C0ECA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB9CCC8D1F4BF7C600C0ECA6 /* Amplitude.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 343AB4171CC99F4F00962943;
+			remoteInfo = AmplitudeFramework;
+		};
+		AB9CCC9A1F4BF7C600C0ECA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB9CCC8D1F4BF7C600C0ECA6 /* Amplitude.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 600CBC5C1E2EF5B0001F58A9;
+			remoteInfo = AmplitudeTVOSTests;
 		};
 		ABB9B5F71F1CA39F0021552A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -72,6 +110,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AB3ACF121F4BF7E7002077C7 /* Amplitude.framework in Embed Frameworks */,
 				ABB9B5FA1F1CA3AB0021552A /* CameraEngine.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -82,6 +121,7 @@
 /* Begin PBXFileReference section */
 		AB2CDDC91F29A92D00C77D0C /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = HippoUITests/Utility/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		AB3170591F1EC3650018DE9F /* ApplicationMirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationMirror.swift; sourceTree = "<group>"; };
+		AB3ACF151F4BF818002077C7 /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		AB4013261F234FD80083B52F /* Release-Hippo-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Hippo-Config.xcconfig"; sourceTree = "<group>"; };
 		AB4013401F2355520083B52F /* Debug-Hippo-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Hippo-Config.xcconfig"; sourceTree = "<group>"; };
 		AB5AFD611F1CA47C0023CB84 /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Fastfile; sourceTree = "<group>"; };
@@ -106,6 +146,7 @@
 		AB9687881F1B7CCA001ECBCF /* Release-Project-Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Project-Config.xcconfig"; sourceTree = "<group>"; };
 		AB9C85B81F1B825A004D8893 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		AB9C85BB1F1C03E9004D8893 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		AB9CCC8D1F4BF7C600C0ECA6 /* Amplitude.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Amplitude.xcodeproj; path = "Carthage/Checkouts/Amplitude-iOS/Amplitude.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CameraEngine.xcodeproj; path = Carthage/Checkouts/CameraEngine/CameraEngine.xcodeproj; sourceTree = SOURCE_ROOT; };
 		ABD644821F2B26E50044EBC1 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		ABD644871F2B2A4D0044EBC1 /* PermissionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionScreen.swift; sourceTree = "<group>"; };
@@ -121,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3ACF111F4BF7E7002077C7 /* Amplitude.framework in Frameworks */,
 				ABB9B5F91F1CA3AB0021552A /* CameraEngine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +190,7 @@
 				AB3170591F1EC3650018DE9F /* ApplicationMirror.swift */,
 				AB75C2C41F202BA70013CDDC /* Style.swift */,
 				AB75C2C91F2060F50013CDDC /* NSKeyValueObservation+Disposable.swift */,
+				AB3ACF151F4BF818002077C7 /* Analytics.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -240,6 +283,7 @@
 		AB96878A1F1B7D81001ECBCF /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				AB9CCC8D1F4BF7C600C0ECA6 /* Amplitude.xcodeproj */,
 				ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */,
 			);
 			path = Dependencies;
@@ -305,6 +349,17 @@
 			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		AB9CCC8E1F4BF7C600C0ECA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB9CCC951F4BF7C600C0ECA6 /* libAmplitude.a */,
+				AB9CCC971F4BF7C600C0ECA6 /* AmplitudeTests.xctest */,
+				AB9CCC991F4BF7C600C0ECA6 /* Amplitude.framework */,
+				AB9CCC9B1F4BF7C600C0ECA6 /* AmplitudeTVOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		ABB9B5F41F1CA39F0021552A /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +421,7 @@
 			);
 			dependencies = (
 				ABB9B5FC1F1CA3AB0021552A /* PBXTargetDependency */,
+				AB3ACF141F4BF7E7002077C7 /* PBXTargetDependency */,
 			);
 			name = Hippo;
 			productName = Hippo;
@@ -447,6 +503,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = AB9CCC8E1F4BF7C600C0ECA6 /* Products */;
+					ProjectRef = AB9CCC8D1F4BF7C600C0ECA6 /* Amplitude.xcodeproj */;
+				},
+				{
 					ProductGroup = ABB9B5F41F1CA39F0021552A /* Products */;
 					ProjectRef = ABB9B5F31F1CA39F0021552A /* CameraEngine.xcodeproj */;
 				},
@@ -461,6 +521,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		AB9CCC951F4BF7C600C0ECA6 /* libAmplitude.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAmplitude.a;
+			remoteRef = AB9CCC941F4BF7C600C0ECA6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AB9CCC971F4BF7C600C0ECA6 /* AmplitudeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AmplitudeTests.xctest;
+			remoteRef = AB9CCC961F4BF7C600C0ECA6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AB9CCC991F4BF7C600C0ECA6 /* Amplitude.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Amplitude.framework;
+			remoteRef = AB9CCC981F4BF7C600C0ECA6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AB9CCC9B1F4BF7C600C0ECA6 /* AmplitudeTVOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AmplitudeTVOSTests.xctest;
+			remoteRef = AB9CCC9A1F4BF7C600C0ECA6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		ABB9B5F81F1CA39F0021552A /* CameraEngine.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -507,6 +595,7 @@
 				AB8854351F21C0660020CB60 /* PermissionViewController.swift in Sources */,
 				AB75C2C51F202BA70013CDDC /* Style.swift in Sources */,
 				AB9687581F1B7590001ECBCF /* AppDelegate.swift in Sources */,
+				AB3ACF161F4BF818002077C7 /* Analytics.swift in Sources */,
 				AB75C2C81F2031E80013CDDC /* MyAsset.swift in Sources */,
 				AB31705A1F1EC3650018DE9F /* ApplicationMirror.swift in Sources */,
 				ABF9A79B1F4579F300478397 /* IntroductionViewController.swift in Sources */,
@@ -542,6 +631,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		AB3ACF141F4BF7E7002077C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AmplitudeFramework;
+			targetProxy = AB3ACF131F4BF7E7002077C7 /* PBXContainerItemProxy */;
+		};
 		AB96876A1F1B7590001ECBCF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AB9687531F1B7590001ECBCF /* Hippo */;
