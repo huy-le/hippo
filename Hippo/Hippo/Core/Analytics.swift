@@ -10,7 +10,27 @@ import Foundation
 import Amplitude
 
 struct Analytics {
+    static let analytic: Amplitude! = Amplitude.instance()
     static func setup() {
-        Amplitude().initializeApiKey("0e21ac2ebbc4bfac58fdea2e8407f027")
+        analytic.initializeApiKey("0e21ac2ebbc4bfac58fdea2e8407f027")
+    }
+    
+    static func track(event: Event) {
+        analytic.logEvent(event.rawValue)
+    }
+    
+    enum Event: String {
+        case openIntroductionScreen
+        case openPermissionScreen
+        case tapAllowButtonPermission
+        case allowDictationPermission
+        case deniedDictationPermission
+        case allowMicPermission
+        case allowCameraPermission
+        case openCameraScreen
+        case openReviewScreen
+        case swipeToDismissReviewScreen
+        case tapRecordButton
+        case tapChangeLanguageButton
     }
 }

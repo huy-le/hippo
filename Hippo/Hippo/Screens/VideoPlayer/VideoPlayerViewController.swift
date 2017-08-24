@@ -30,6 +30,7 @@ final class VideoPlayerViewController: AVPlayerViewController {
     }
     
     @objc private func close() {
+        Analytics.track(event: .swipeToDismissReviewScreen)
         dismiss(animated: true, completion: nil)
     }
     
@@ -41,6 +42,7 @@ final class VideoPlayerViewController: AVPlayerViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        Analytics.track(event: .openReviewScreen)
         super.viewDidAppear(animated)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             self.player?.play()

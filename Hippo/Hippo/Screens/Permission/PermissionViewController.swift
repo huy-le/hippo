@@ -62,16 +62,22 @@ final class PermissionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        Analytics.track(event: .openPermissionScreen)
         super.viewDidAppear(animated)
         openCameraIfNeeded()
     }
     
     @IBAction func touchAllow(_ sender: Any) {
+        Analytics.track(event: .tapAllowButtonPermission)
         if ApplicationMirror.isTakingSnapshot { openCamera(); return }
         SFSpeechRecognizer.requestAuthorization { (status) in
             switch status {
-            case .authorized: break
-            case .denied: break
+            case .authorized:
+                Analytics.track(event: .allowDictationPermission)
+                break
+            case .denied:
+                Analytics.track(event: .deniedDictationPermission)
+                break
             case .notDetermined: break
             case .restricted: break
             }
@@ -97,7 +103,9 @@ final class PermissionViewController: UIViewController {
             // Request access for video
             AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted) in
                 // Then request access for audio
+                if granted { Analytics.track(event: .allowCameraPermission) }
                 AVCaptureDevice.requestAccess(for: .audio, completionHandler: { (granted) in
+                    if granted { Analytics.track(event: .allowMicPermission) }
                     self.openCameraIfNeeded()
                 })
             })

@@ -30,6 +30,7 @@ final class IntroductionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        Analytics.track(event: .openIntroductionScreen)
         super.viewDidAppear(animated)
         openPermissionScreenIfNeeded()
     }

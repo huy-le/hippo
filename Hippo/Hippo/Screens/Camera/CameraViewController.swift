@@ -106,6 +106,11 @@ final class CameraViewController: UIViewController {
         addScreenshotBackgroundIfNeeded()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        Analytics.track(event: .openCameraScreen)
+        super.viewDidAppear(animated)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard ApplicationMirror.isDevice else { return }
@@ -120,6 +125,7 @@ final class CameraViewController: UIViewController {
     }
     
     @IBAction func touchButton(_ sender: RecordButton) {
+        Analytics.track(event: .tapRecordButton)
         UISelectionFeedbackGenerator().selectionChanged()
         sender.isSelected = !sender.isSelected
         capture()
@@ -130,6 +136,7 @@ final class CameraViewController: UIViewController {
     }
     
     @IBAction func tapOnLocaleButton(_ sender: Any) {
+        Analytics.track(event: .tapChangeLanguageButton)
         let vc = UIAlertController(title: "Dictation language", message: "Choose language you want to practice speaking", preferredStyle: .actionSheet)
         vc.popoverPresentationController?.sourceRect = localeButton.frame
         vc.popoverPresentationController?.sourceView = localeButton
