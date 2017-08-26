@@ -15,8 +15,8 @@ struct Analytics {
         analytic.initializeApiKey("0e21ac2ebbc4bfac58fdea2e8407f027")
     }
     
-    static func track(event: Event) {
-        analytic.logEvent(event.rawValue)
+    static func track(event: Event, property: [String: Any] = [:]) {
+        analytic.logEvent(event.rawValue, withEventProperties: property)
     }
     
     enum Event: String {
@@ -32,5 +32,7 @@ struct Analytics {
         case swipeToDismissReviewScreen
         case tapRecordButton
         case tapChangeLanguageButton
+        case failGetDictation
+        case completeRecord
     }
 }

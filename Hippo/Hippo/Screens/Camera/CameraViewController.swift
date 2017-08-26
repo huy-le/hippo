@@ -43,6 +43,7 @@ final class CameraViewController: UIViewController {
     private let cameraEngine = CameraEngine()
     private var videoURL: URL? = CameraEngineFileManager.temporaryPath("video.mp4")
     private var isUsingFrontCamera: Bool = false
+    private var recordDuration: Double = 0
     lazy private var durationTimeFormatter: DateComponentsFormatter = self.lazy_durationTimeFormatter()
     lazy private var reviewViewController: VideoPlayerViewController =
         VideoPlayerViewController()
@@ -165,6 +166,8 @@ final class CameraViewController: UIViewController {
         }
         _ = try? FileManager().removeItem(at: url)
         cameraEngine.startRecordingVideo(url) { (url, error) -> (Void) in
+            print("Complete recording")
+            Analytics.track(event: .completeRecord, property: ["duration": self.recordDuration])
             if let error = error {
                 assertionFailure(error.description)
             }
@@ -178,6 +181,8 @@ final class CameraViewController: UIViewController {
             DispatchQueue.main.async {
                 self.durationLabel.text = "\(durationDescription)"
             }
+            // Use for analytics
+            self.recordDuration = seconds
         }
         print("Start recording")
         self.foo()
@@ -240,6 +245,7 @@ final class CameraViewController: UIViewController {
         recognizer.recognitionTask(with: recognitionRequest) { (result, error) in
             guard let result = result else {
                 print("🆘 \(error.debugDescription)")
+                Analytics.track(event: .failGetDictation, property: ["error": error.debugDescription])
                 return
             }
             self.bestTranscription = result.bestTranscription.formattedString
