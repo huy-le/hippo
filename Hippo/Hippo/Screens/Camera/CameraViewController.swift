@@ -153,6 +153,13 @@ final class CameraViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func tapShareButton(_ sender: UIButton) {
+        let vc = UIActivityViewController(activityItems: ["https://itunes.apple.com/us/app/hippo-speaking/id1262405017?ls=1&mt=8"], applicationActivities: nil)
+        self.present(vc, animated: true) {
+            print("Present share view controller")
+        }
+    }
+    
     func capture() {
         
         guard ApplicationMirror.isDevice else { return }
