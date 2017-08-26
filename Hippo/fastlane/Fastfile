@@ -188,10 +188,10 @@ platform :ios do
     # verify_xcode
     lane_context[:build_type] = "Release"
 
-    build_number = latest_testflight_build_number(username: ENV["ITC_USERNAME"], app_identifier: App::BUNDLE_ID)
-    increment_build_number({
-      build_number: build_number + 1
-    })
+    # build_number = latest_testflight_build_number(username: ENV["ITC_USERNAME"], app_identifier: App::BUNDLE_ID)
+    # increment_build_number({
+    #   build_number: build_number + 1
+    # })
 
     update_app_identifier(
       xcodeproj: Fastlane::PROJECT_FILE,
