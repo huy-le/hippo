@@ -34,5 +34,8 @@ struct Analytics {
         case tapChangeLanguageButton
         case failGetDictation
         case completeRecord
+        case tapLoveButton
+        case shareApp
+        case rateApp
     }
 }

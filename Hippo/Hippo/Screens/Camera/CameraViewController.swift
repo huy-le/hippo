@@ -11,6 +11,7 @@ import CameraEngine
 import AVKit
 import CoreGraphics
 import Speech
+import StoreKit
 
 extension UserDefaults {
     var selectedLocale: String? {
@@ -153,7 +154,32 @@ final class CameraViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
-    @IBAction func tapShareButton(_ sender: UIButton) {
+    @IBAction func tapLoveButton(_ sender: UIButton) {
+        Analytics.track(event: .tapLoveButton)
+        let alert = UIAlertController(title: "Love this app", message: "Would you like to", preferredStyle: .actionSheet)
+        alert.popoverPresentationController?.sourceRect = sender.frame
+        alert.popoverPresentationController?.sourceView = sender
+        
+        alert.addAction(UIAlertAction(title: "Share to your friends", style: .default, handler: { (_) in
+            self.shareApp()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Rate this app", style: .default, handler: { (_) in
+            self.rateApp()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func rateApp() {
+        Analytics.track(event: .rateApp)
+        SKStoreReviewController.requestReview()
+    }
+    
+    private func shareApp() {
+        Analytics.track(event: .shareApp)
         let vc = UIActivityViewController(activityItems: ["https://itunes.apple.com/us/app/hippo-speaking/id1262405017?ls=1&mt=8"], applicationActivities: nil)
         self.present(vc, animated: true) {
             print("Present share view controller")
@@ -192,7 +218,7 @@ final class CameraViewController: UIViewController {
             self.recordDuration = seconds
         }
         print("Start recording")
-        self.foo()
+        self.requestDictation()
         showDuration()
     }
   
@@ -239,7 +265,7 @@ final class CameraViewController: UIViewController {
     
     // MARK: - Dictation
     
-    func foo() {
+    func requestDictation() {
         let locale = selectedLocale
         guard let recognizer = SFSpeechRecognizer(locale: locale) else {
             // A recognizer is not supported for the current locale

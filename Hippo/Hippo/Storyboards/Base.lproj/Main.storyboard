@@ -70,20 +70,21 @@
                                 </userDefinedRuntimeAttributes>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tj6-lZ-Wtb">
-                                <rect key="frame" x="30" y="590" width="87" height="30"/>
+                                <rect key="frame" x="30" y="587" width="96" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="🇦🇺 Dictation"/>
                                 <connections>
                                     <action selector="tapOnLocaleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bxJ-A2-uSp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sla-P7-UcY">
-                                <rect key="frame" x="300" y="587" width="45" height="33"/>
+                                <rect key="frame" x="267" y="587" width="78" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <state key="normal" title="Share">
+                                <state key="normal" title="Love it ❤️">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="tapShareButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t0a-uu-LYm"/>
+                                    <action selector="tapLoveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t0a-uu-LYm"/>
                                 </connections>
                             </button>
                         </subviews>
