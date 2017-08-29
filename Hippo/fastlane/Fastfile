@@ -1,6 +1,6 @@
 
 Fastlane::OUTPUT_PATH="fastlane/build"
-Fastlane::XCODE_VERSION="9.0"
+Fastlane::XCODE_VERSION="8.3.3"
 Fastlane::TEST_SCHEME="Hippo"
 Fastlane::TEST_SIMULATOR="iPhone 7"
 Fastlane::PROJECT_FOLDER="Hippo"
@@ -214,10 +214,10 @@ platform :ios do
       export_method: "app-store",
       codesigning_identity: "iPhone Distribution: Huy Le (8P8UGV8V2N)",
       export_team_id: "8P8UGV8V2N",
-      xcargs: "DEVELOPMENT_TEAM=8P8UGV8V2N \
-      RELEASE_PROVISIONING_PROFILE=\"Hippo AppStore\"",
-      export_xcargs: "DEVELOPMENT_TEAM=8P8UGV8V2N \
-      RELEASE_PROVISIONING_PROFILE=\"Hippo AppStore\"",
+      # xcargs: "DEVELOPMENT_TEAM=8P8UGV8V2N \
+      # RELEASE_PROVISIONING_PROFILE=\"Hippo AppStore\"",
+      # export_xcargs: "DEVELOPMENT_TEAM=8P8UGV8V2N \
+      # RELEASE_PROVISIONING_PROFILE=\"Hippo AppStore\"",
       export_options: {
         provisioningProfiles: {
           App::BUNDLE_ID => "Hippo AppStore"
