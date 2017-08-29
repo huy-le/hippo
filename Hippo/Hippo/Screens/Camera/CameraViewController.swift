@@ -49,11 +49,7 @@ final class CameraViewController: UIViewController {
     lazy private var reviewViewController: VideoPlayerViewController =
         VideoPlayerViewController()
     
-    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest = {
-        let request = SFSpeechAudioBufferRecognitionRequest()
-        request.shouldReportPartialResults = true
-        return request
-    }()
+    private lazy var recognitionRequest: SFSpeechAudioBufferRecognitionRequest = self.lazy_recognitionRequest()
     
     private var bestTranscription: String? {
         didSet {
@@ -266,6 +262,7 @@ final class CameraViewController: UIViewController {
     // MARK: - Dictation
     
     func requestDictation() {
+        recognitionRequest = lazy_recognitionRequest()
         let locale = selectedLocale
         guard let recognizer = SFSpeechRecognizer(locale: locale) else {
             // A recognizer is not supported for the current locale
@@ -287,5 +284,11 @@ final class CameraViewController: UIViewController {
     
     func recognizeSpeech(sampleBuffer: CMSampleBuffer) {
         recognitionRequest.appendAudioSampleBuffer(sampleBuffer)
+    }
+    
+    func lazy_recognitionRequest() -> SFSpeechAudioBufferRecognitionRequest {
+        let request = SFSpeechAudioBufferRecognitionRequest()
+        request.shouldReportPartialResults = true
+        return request
     }
 }
