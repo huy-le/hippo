@@ -1,6 +1,6 @@
 
 Fastlane::OUTPUT_PATH="fastlane/build"
-Fastlane::XCODE_VERSION="9.0"
+Fastlane::XCODE_VERSION="9.2"
 Fastlane::TEST_SCHEME="Hippo"
 Fastlane::TEST_SIMULATOR="iPhone 7"
 Fastlane::PROJECT_FOLDER="Hippo"
